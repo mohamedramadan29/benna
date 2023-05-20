@@ -73,45 +73,105 @@
                                     <tr>
                                         <th> # </th>
                                         <th>الأسم </th>
-                                        <th> صورة القسم </th>
+                                        <th> الوصف المختصر </th>
+                                        <th> المستشارين </th>
+                                        <th> الصورة </th>
                                         <th> </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $stmt = $connect->prepare("SELECT * FROM categories ORDER BY id DESC");
+                                    $stmt = $connect->prepare("SELECT * FROM projects ORDER BY id DESC");
                                     $stmt->execute();
-                                    $allcat = $stmt->fetchAll();
+                                    $allpro = $stmt->fetchAll();
                                     $i = 0;
-                                    foreach ($allcat as $cat) {
+                                    foreach ($allpro as $pro) {
                                         $i++;
                                     ?>
                                         <tr>
                                             <td> <?php echo $i; ?> </td>
-                                            <td> <?php echo  $cat['name']; ?> </td>
-                                            <td> <img style="width: 60px; height:60px" src="benna_categories/images/<?php echo $cat['main_image']; ?> " alt=""></td>
+                                            <td> <?php echo  $pro['name']; ?> </td>
+                                            <td> <?php echo  $pro['short_desc']; ?> </td>
+                                            <td> <?php
+                                                    $advisor = $pro['advisors'];
+                                                    $advisor = explode(',', $advisor);
+                                                    foreach ($advisor as $adv) {
+
+                                                        $stmt = $connect->prepare("SELECT * FROM project_advisor WHERE id = ?");
+                                                        $stmt->execute(array($adv));
+                                                        $advisor_data = $stmt->fetch();
+                                                        $adv_name = $advisor_data['name'];
+                                                        echo $adv_name . "</br>";
+                                                    } ?> </td>
+                                            <td> <img style="width: 60px; height:60px" src="projects/images/<?php echo $pro['image']; ?> " alt=""></td>
                                             <td>
-                                                <button type="button" class="btn btn-success btn-sm waves-effect" data-toggle="modal" data-target="#edit-Modal_<?php echo $cat['id']; ?>"> تعديل <i class='fa fa-pen'></i> </button>
-                                                <a href="main.php?dir=categories&page=delete&cat_id=<?php echo $cat['id']; ?>" class="confirm btn btn-danger btn-sm"> حذف <i class='fa fa-trash'></i> </a>
+                                                <button type="button" class="btn btn-success btn-sm waves-effect" data-toggle="modal" data-target="#edit-Modal_<?php echo $pro['id']; ?>"> تعديل <i class='fa fa-pen'></i> </button>
+                                                <a href="main.php?dir=projects&page=delete&pro_id=<?php echo $pro['id']; ?>" class="confirm btn btn-danger btn-sm"> حذف <i class='fa fa-trash'></i> </a>
                                             </td>
                                         </tr>
                                         <!-- EDIT NEW CATEGORY MODAL   -->
-                                        <div class="modal fade" id="edit-Modal_<?php echo $cat['id']; ?>" tabindex="-1" role="dialog">
+                                        <div class="modal fade" id="edit-Modal_<?php echo $pro['id']; ?>" tabindex="-1" role="dialog">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h4 class="modal-title"> تعديل القسم </h4>
+                                                        <h4 class="modal-title"> تعديل المشروع </h4>
                                                     </div>
                                                     <form method="post" action="main.php?dir=projects&page=edit" enctype="multipart/form-data">
                                                         <div class="modal-body">
                                                             <div class="form-group">
-                                                                <input type='hidden' name="cat_id" value="<?php echo $cat['id']; ?>">
+                                                                <input type='hidden' name="pro_id" value="<?php echo $pro['id']; ?>">
                                                                 <label for="Company-2" class="block">الأسم </label>
-                                                                <input id="Company-2" required name="name" type="text" class="form-control required" value="<?php echo  $cat['name'] ?>">
+                                                                <input id="Company-2" required name="name" type="text" class="form-control required" value="<?php echo  $pro['name'] ?>">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="Company-2" class="block"> القسم </label>
+                                                                <select name="cat_id" id="" class="form-control select2">
+                                                                    <option value="" class=""> -- اختر القسم -- </option>
+                                                                    <?php
+                                                                    $stmt = $connect->prepare("SELECT * FROM categories");
+                                                                    $stmt->execute();
+                                                                    $allcat = $stmt->fetchAll();
+                                                                    foreach ($allcat as $cat) {
+                                                                    ?>
+                                                                        <option <?php if ($pro['cat_id'] == $cat['id']) echo 'selected'; ?> value="<?php echo $cat['id']; ?>"> <?php echo $cat['name']; ?> </option>
+                                                                    <?php
+                                                                    }
+                                                                    ?>
+                                                                </select>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="Company-2" class="block"> الوصف </label>
-                                                                <textarea style="height: 150px;" id="Company-2" name="description" class="form-control"><?php echo  $cat['description'] ?></textarea>
+                                                                <textarea style="height: 120px;" id="Company-2" name="description" class="form-control"><?php echo  $pro['description'] ?></textarea>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="Company-2" class="block"> وصف مختصر </label>
+                                                                <textarea style="height: 120px;" id="Company-2" name="short_desc" class="form-control"><?php echo  $pro['short_desc'] ?></textarea>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="Company-2" class="block"> مميزات المشروع <span class="badge badge-info"> افصل بين كل ميزة ب "," </span> </label>
+                                                                <textarea style="height: 120px;" id="Company-2" name="project_adv" class="form-control"><?php echo  $pro['project_adv'] ?></textarea>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="Company-2" class="block"> المستشارين </label>
+                                                                <select name="advisors[]" id="" class="form-control select2" multiple>
+                                                                    <option value="" class=""> -- اختر المستشارين -- </option>
+                                                                    <?php
+                                                                    $stmt = $connect->prepare("SELECT * FROM project_advisor");
+                                                                    $stmt->execute();
+                                                                    $alladvisor = $stmt->fetchAll();
+                                                                    $pro_advisors = explode(',', $pro['advisors']);
+                                                                    foreach ($alladvisor as $advisor) {
+                                                                        foreach ($pro_advisors as $adv) {
+                                                                    ?>
+                                                                            <option <?php if ($adv == $advisor['id']) echo 'selected'; ?> value="<?php echo $advisor['id']; ?>"> <?php echo $advisor['name']; ?> </option>
+
+                                                                        <?php
+                                                                        }
+                                                                        ?>
+                                                                    <?php
+                                                                    }
+                                                                    ?>
+                                                                </select>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="customFile"> تعديل صورة القسم </label>
@@ -119,6 +179,11 @@
                                                                     <input type="file" class="custom-file-input" id="customFile" accept='image/*' name="main_image">
                                                                     <label class="custom-file-label" for="customFile">اختر الصورة</label>
                                                                 </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="Company-2" class="block"> رقم التواصل </label>
+                                                                <input type="text" name="contact_number" class="form-control" value="<?php echo $pro['contact_number']; ?>">
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
@@ -178,10 +243,9 @@
                                         <label for="Company-2" class="block"> مميزات المشروع <span class="badge badge-info"> افصل بين كل ميزة ب "," </span> </label>
                                         <textarea style="height: 120px;" id="Company-2" name="project_adv" class="form-control"></textarea>
                                     </div>
-
                                     <div class="form-group">
                                         <label for="Company-2" class="block"> المستشارين </label>
-                                        <select name="" id="" class="form-control select2" multiple>
+                                        <select name="advisors[]" id="" class="form-control select2" multiple>
                                             <option value="" class=""> -- اختر المستشارين -- </option>
                                             <?php
                                             $stmt = $connect->prepare("SELECT * FROM project_advisor");
@@ -202,7 +266,6 @@
                                             <label class="custom-file-label" for="customFile">اختر الصورة</label>
                                         </div>
                                     </div>
-
                                     <div class="form-group">
                                         <label for="Company-2" class="block"> رقم التواصل </label>
                                         <input type="text" name="contact_number" class="form-control">
