@@ -3,13 +3,13 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark"> المشاريع </h1>
+                <h1 class="m-0 text-dark"> المستشارين </h1>
             </div>
             <!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-left">
                     <li class="breadcrumb-item"><a href="main.php?dir=dashboard&page=dashboard">الرئيسية</a></li>
-                    <li class="breadcrumb-item active"> المشاريع </li>
+                    <li class="breadcrumb-item active"> المستشارين </li>
                 </ol>
             </div>
             <!-- /.col -->
@@ -29,7 +29,7 @@
                 <div class="card">
 
                     <div class="card-header">
-                        <button type="button" class="btn btn-primary waves-effect btn-sm" data-toggle="modal" data-target="#add-Modal"> أضافة مشروع جديد <i class="fa fa-plus"></i> </button>
+                        <button type="button" class="btn btn-primary waves-effect btn-sm" data-toggle="modal" data-target="#add-Modal"> أضافة مستشار جديد <i class="fa fa-plus"></i> </button>
                     </div>
                     <?php
                     if (isset($_SESSION['success_message'])) {
@@ -73,13 +73,14 @@
                                     <tr>
                                         <th> # </th>
                                         <th>الأسم </th>
-                                        <th> صورة القسم </th>
+                                        <th> التخصص </th>
+                                        <th> الصورة </th>
                                         <th> </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $stmt = $connect->prepare("SELECT * FROM categories ORDER BY id DESC");
+                                    $stmt = $connect->prepare("SELECT * FROM project_advisor ORDER BY id DESC");
                                     $stmt->execute();
                                     $allcat = $stmt->fetchAll();
                                     $i = 0;
@@ -89,10 +90,11 @@
                                         <tr>
                                             <td> <?php echo $i; ?> </td>
                                             <td> <?php echo  $cat['name']; ?> </td>
-                                            <td> <img style="width: 60px; height:60px" src="benna_categories/images/<?php echo $cat['main_image']; ?> " alt=""></td>
+                                            <td> <?php echo  $cat['speical_name']; ?> </td>
+                                            <td> <img style="width: 60px; height:60px" src="advisors/images/<?php echo $cat['image']; ?> " alt=""></td>
                                             <td>
                                                 <button type="button" class="btn btn-success btn-sm waves-effect" data-toggle="modal" data-target="#edit-Modal_<?php echo $cat['id']; ?>"> تعديل <i class='fa fa-pen'></i> </button>
-                                                <a href="main.php?dir=categories&page=delete&cat_id=<?php echo $cat['id']; ?>" class="confirm btn btn-danger btn-sm"> حذف <i class='fa fa-trash'></i> </a>
+                                                <a href="main.php?dir=advisors&page=delete&cat_id=<?php echo $cat['id']; ?>" class="confirm btn btn-danger btn-sm"> حذف <i class='fa fa-trash'></i> </a>
                                             </td>
                                         </tr>
                                         <!-- EDIT NEW CATEGORY MODAL   -->
@@ -100,21 +102,21 @@
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h4 class="modal-title"> تعديل القسم </h4>
+                                                        <h4 class="modal-title"> تعديل </h4>
                                                     </div>
-                                                    <form method="post" action="main.php?dir=projects&page=edit" enctype="multipart/form-data">
+                                                    <form method="post" action="main.php?dir=advisors&page=edit" enctype="multipart/form-data">
                                                         <div class="modal-body">
                                                             <div class="form-group">
-                                                                <input type='hidden' name="cat_id" value="<?php echo $cat['id']; ?>">
+                                                                <input type='hidden' name="id" value="<?php echo $cat['id']; ?>">
                                                                 <label for="Company-2" class="block">الأسم </label>
                                                                 <input id="Company-2" required name="name" type="text" class="form-control required" value="<?php echo  $cat['name'] ?>">
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="Company-2" class="block"> الوصف </label>
-                                                                <textarea style="height: 150px;" id="Company-2" name="description" class="form-control"><?php echo  $cat['description'] ?></textarea>
+                                                                <label for="Company-2" class="block"> الخصص </label>
+                                                                <input type="text" name="speical_name" class="form-control" value="<?php echo  $cat['speical_name']; ?>">
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="customFile"> تعديل صورة القسم </label>
+                                                                <label for="customFile"> تعديل صورة المستشار </label>
                                                                 <div class="custom-file">
                                                                     <input type="file" class="custom-file-input" id="customFile" accept='image/*' name="main_image">
                                                                     <label class="custom-file-label" for="customFile">اختر الصورة</label>
@@ -142,70 +144,24 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">أضافة مشروع </h4>
+                                <h4 class="modal-title">أضافة مستشار </h4>
                             </div>
-                            <form action="main.php?dir=projects&page=add" method="post" enctype="multipart/form-data">
+                            <form action="main.php?dir=advisors&page=add" method="post" enctype="multipart/form-data">
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label for="Company-2" class="block"> اسم المشروع </label>
+                                        <label for="Company-2" class="block"> الأسم </label>
                                         <input required id="Company-2" name="name" type="text" class="form-control required">
                                     </div>
                                     <div class="form-group">
-                                        <label for="Company-2" class="block"> القسم </label>
-                                        <select name="cat_id" id="" class="form-control select2">
-                                            <option value="" class=""> -- اختر القسم -- </option>
-                                            <?php
-                                            $stmt = $connect->prepare("SELECT * FROM categories");
-                                            $stmt->execute();
-                                            $allcat = $stmt->fetchAll();
-                                            foreach ($allcat as $cat) {
-                                            ?>
-                                                <option value="<?php echo $cat['id']; ?>"> <?php echo $cat['name']; ?> </option>
-                                            <?php
-                                            }
-                                            ?>
-                                        </select>
+                                        <label for="Company-2" class="block"> التخصص </label>
+                                        <input type="text" name="speical_name" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label for="Company-2" class="block"> الوصف </label>
-                                        <textarea style="height: 120px;" id="Company-2" name="description" class="form-control"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="Company-2" class="block"> وصف مختصر </label>
-                                        <textarea style="height: 120px;" id="Company-2" name="short_desc" class="form-control"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="Company-2" class="block"> مميزات المشروع <span class="badge badge-info"> افصل بين كل ميزة ب "," </span> </label>
-                                        <textarea style="height: 120px;" id="Company-2" name="project_adv" class="form-control"></textarea>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="Company-2" class="block"> المستشارين </label>
-                                        <select name="" id="" class="form-control select2" multiple>
-                                            <option value="" class=""> -- اختر المستشارين -- </option>
-                                            <?php
-                                            $stmt = $connect->prepare("SELECT * FROM project_advisor");
-                                            $stmt->execute();
-                                            $alladvisor = $stmt->fetchAll();
-                                            foreach ($alladvisor as $advisor) {
-                                            ?>
-                                                <option value="<?php echo $advisor['id']; ?>"> <?php echo $advisor['name']; ?> </option>
-                                            <?php
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="customFile"> صورة المشروع </label>
+                                        <label for="customFile"> صورة المستشار </label>
                                         <div class="custom-file">
                                             <input required type="file" class="custom-file-input" id="customFile" accept='image/*' name="main_image">
                                             <label class="custom-file-label" for="customFile">اختر الصورة</label>
                                         </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="Company-2" class="block"> رقم التواصل </label>
-                                        <input type="text" name="contact_number" class="form-control">
                                     </div>
                                 </div>
                                 <div class="modal-footer">

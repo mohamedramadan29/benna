@@ -78,6 +78,36 @@
                 </li>
               </ul>
             </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <p>
+                  المستشارين 
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="main.php?dir=advisors&page=report" class="nav-link">
+                    <p> جميع المستشارين </p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <p>
+                  المشاريع
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="main.php?dir=projects&page=report" class="nav-link">
+                    <p> جميع المشاريع </p>
+                  </a>
+                </li>
+              </ul>
+            </li>
             <!--
             <li class="nav-item">
               <a href="#" class="nav-link">

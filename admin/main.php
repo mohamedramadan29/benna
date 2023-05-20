@@ -40,6 +40,26 @@ if (isset($_SESSION['username'])) {
     } elseif ($dir == 'benna_categories' && $page == 'report') {
         include "benna_categories/report.php";
     }
+    // START main BEANNA Projects
+    if ($dir == 'projects' && $page == 'add') {
+        include "projects/add.php";
+    } elseif ($dir == 'projects' && $page == 'edit') {
+        include "projects/edit.php";
+    } elseif ($dir == 'projects' && $page == 'delete') {
+        include 'projects/delete.php';
+    } elseif ($dir == 'projects' && $page == 'report') {
+        include "projects/report.php";
+    }
+    // START main BEANNA Advisors  
+    if ($dir == 'advisors' && $page == 'add') {
+        include "advisors/add.php";
+    } elseif ($dir == 'advisors' && $page == 'edit') {
+        include "advisors/edit.php";
+    } elseif ($dir == 'advisors' && $page == 'delete') {
+        include 'advisors/delete.php';
+    } elseif ($dir == 'advisors' && $page == 'report') {
+        include "advisors/report.php";
+    }
 
 
 
