@@ -1,3 +1,58 @@
+<!-- START SHORT CONATCT -->
+<div class="short_contact">
+    <div class="overlay">
+        <div class="container">
+            <div class="data">
+                <div class="info">
+                    <div>
+                        <h3> هل لديك اي استفسار </h3>
+                    </div>
+                    <div>
+                        <a target="_blank" href="https://wa.me/966554434266" class="btn button"> تواصل معنا الان <i class="fa fa-whatsapp"></i> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END SHORT CONTACT -->
+<!-- START BRANDS  -->
+<div class="brands">
+    <div class="container">
+        <div class="data">
+            <div class="row" style="display: flex; align-items:center">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                    <div class="info">
+                        <img src="uploads/logo/1.webp" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="info">
+                        <img src="uploads/logo/2.webp" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="info">
+                        <img src="uploads/logo/3.webp" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="info">
+                        <img src="uploads/logo/4.webp" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="info">
+                        <img src="uploads/logo/5.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END BRANDS -->
+
 <div class="footer">
     <div class="container">
         <div class="data">
@@ -5,8 +60,8 @@
                 <div class="col-lg-4">
                     <div class="info">
                         <h4> هاكم </h4>
-                        <p>  منصة لوجستية تربط بين المرسلين لمستنداتهم
-                            والمسافرين بجمعهم في منصة واحدة ، بسعر أفضل ووقت أقصر    </p>
+                        <p> منصة لوجستية تربط بين المرسلين لمستنداتهم
+                            والمسافرين بجمعهم في منصة واحدة ، بسعر أفضل ووقت أقصر </p>
                     </div>
                 </div>
                 <div class="col-lg-4">

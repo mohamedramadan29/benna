@@ -220,7 +220,7 @@ END ABOUT US SECTION
 
 /* START CATEGORIES  */
 .categories {
-    background-color: #fbfbfb; 
+    background-color: #fbfbfb;
     padding-top: 90px;
     background-image: url(../../uploads/short_desc.jpg);
     background-size: cover;
@@ -264,7 +264,7 @@ END ABOUT US SECTION
     background-attachment: fixed;
     padding: 75px;
     position: relative;
-    color: #fff; 
+    color: #fff;
 }
 
 .short_contact .overlay {
@@ -300,19 +300,22 @@ END ABOUT US SECTION
 
 /* END SHORT DESC */
 /* START BRANDS */
-.brands{
-text-align: center;
-padding: 20px;
-margin-top: 60px;
-margin-bottom: 60px;
+.brands {
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
+
 .brands .info {
-    
+
     text-align: center;
 }
-.brands .info img{
+
+.brands .info img {
     max-width: 100%;
 }
+
 /* END BRANDS */
 /* START FOOTER */
 
@@ -799,19 +802,142 @@ input[type='email'] {
     margin-left: 5px;
 }
 
-/* END SECTION HOW WORK  */
-.form_search {
-    background-image: url('../../uploads/search_background.png');
-    background-size: cover;
-    background-position: center;
+/********************** START CATEGORY PAGE *******************/
+.category {
+    min-height: 50vh;
+    text-align: center;
     position: relative;
-    min-height: 400px;
+    color: #fff;
 }
 
-.form_search .select2-container {
-    width: 100% !important;
+.category .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(59, 130, 246, .5);
+    display: flex;
+    align-items: center;
 }
 
+.category .data h2 {
+    font-size: 35px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.category .data p {
+    color: var(--third-color);
+    font-size: 18px;
+}
+
+.category .data a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.categories h2 {
+
+    margin-bottom: 50px;
+    color: var(--main-color);
+    font-size: 35px;
+    font-weight: 600;
+
+}
+
+/* START PROJECT ADVANTAGE */
+.project_adv {
+    padding: 20px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-image: url(../../uploads/short_desc.jpg);
+    background-position: center;
+    background-size: cover;
+    background-color: #d8eff5;
+}
+
+.project_adv .data {}
+
+.project_adv .data .info {
+    box-shadow: 0px 0px 10px 0px #dbdbdb;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.project_adv .data h3 {
+    color: var(--main-color);
+    margin-bottom: 40px;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+
+}
+
+.project_adv .data .info img {
+    width: 55px;
+    height: 55px;
+    border-radius: 100%;
+    padding: 10px;
+    background-color: #fbfbfb;
+    box-shadow: 0px 0px 11px 7px #fbfbfb;
+}
+
+.project_adv .data .info p {
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 15px;
+    color: var(--main-color);
+}
+
+/* END PROJECT ADVANTAGE*/
+/* START PROJECT ADVISORS */
+.project_advisors {
+    padding: 20px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #fbfbfb;
+}
+
+.project_advisors .data {
+    text-align: center;
+}
+
+.project_advisors .data h3 {
+    color: var(--main-color);
+    margin-bottom: 40px;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.project_advisors .data .info {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 2px #f1f1f1;
+}
+
+.project_advisors .data .info img {
+    max-width: 100%;
+    text-align: center;
+    width: 200px;
+}
+
+.project_advisors .data .info h4 {
+    font-size: 22px;
+    margin-top: 20px;
+    text-align: center;
+    color: var(--main-color);
+    margin-bottom: 10px;
+}
+
+.project_advisors .data .info h3 p {}
+
+/* END PROJECT ADVISORS  */
+/*********************** END CATEGORY PAGE *********************/
 @media(max-width:991px) {
     .navbar-toggler {
         background-color: #f7f7f7;

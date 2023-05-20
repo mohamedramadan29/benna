@@ -4,17 +4,16 @@ session_start();
 include 'init.php';
 ?>
 <!-- START HERO SECTION  -->
-<div class="hero">
+<div class="category" style="background-image: url(uploads/background.jpg); background-size: cover; background-position: center; ">
     <div class="overlay">
         <div class="container">
             <div class="data">
                 <div class="row">
                     <div class="col-12">
                         <div class="info">
-                            <h2> مجموعة بناء </h2>
-                            <p class="animate__animated animate__fadeInUp animate__delay-0.6s"> خبراء بناء الإنسان
-                                عبر منظومه برامجية عالمية<br>
-                                قيادياً وقيمياً ومهارياً </p>
+                            <h2>
+                                بناء الجهات</h2>
+                            <p> <a href="index"> الرئيسية </a> / بناء الجهات </p>
                         </div>
                     </div>
                 </div>
@@ -23,41 +22,6 @@ include 'init.php';
     </div>
 </div>
 <!-- END HERO SECTION  -->
-<!-- START SUB INFO -->
-<div class="how_work">
-    <div class="container">
-        <div class="data">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="info">
-                        <span> <i class="fa fa-lightbulb"></i> </span>
-                        <h4> افكار مبدعة </h4>
-
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="info">
-                        <span> <i class="fa fa-arrow-circle-up"></i> </span>
-                        <h4>جودة عالية</h4>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="info">
-                        <span> <i class="fa fa-fire"></i> </span>
-                        <h4> التحدي القيادى </h4>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="info">
-                        <span> <i class="fab fa-angellist"></i> </span>
-                        <h4> دعم متواصل </h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- END SUB INFO  -->
 <!-- START ABOUT US  -->
 <div class="about_us">
     <div class="container">
@@ -68,7 +32,7 @@ include 'init.php';
                         <h2>مجموعة بناء للخدمات والمنتجات التربوية والتعليمية:</h2>
                         <p> بلور فكرتها وأسسها الدكتور غسان بن محمد الصديقي أوائل عام 1424هـ
                             لغرض تقديم برامج واستشارات تربوية وخدمات علمية ودورات تدريبية ومقاييس شخصية وفق أسس علمية حديثة في التربية وبناء الإنسان للمساهمة في تحقيق المجتمع الرائد. ومجموعة بناء عبارة عن نطاق واسع من المنتجات التربوية التي تُعنى ببناء الإنسان في جميع أبعاده الشخصية وصولاً به إلى الشخصية السويَّة الفاعلة المؤثِّرة في تنمية مجتمعها وريادته . </p>
-                        <a href="about_us" class="btn button"> قراءة المزيد </a>
+
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -85,29 +49,24 @@ include 'init.php';
 <div class="categories">
     <div class="container-fluid">
         <div class="data">
+            <h2> المشاريع </h2>
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                     <div class="info">
                         <img src="uploads/cat1.webp" alt="">
-                        <a href="category"> بناء القيادات </a>
+                        <a href="project"> بناء القيادات </a>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                     <div class="info">
                         <img src="uploads/cat1.webp" alt="">
                         <a href="#"> بناء الشباب الطفل</a>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                     <div class="info">
                         <img src="uploads/cat1.webp" alt="">
                         <a href="#">بناء الجهات</a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="info">
-                        <img src="uploads/cat1.webp" alt="">
-                        <a href="#"> المقاييس </a>
                     </div>
                 </div>
             </div>
