@@ -335,7 +335,7 @@ END ABOUT US SECTION
 /* START FOOTER */
 
 .footer {
-    background-color: var(--second-color);
+    background-color: var(--main-color);
     padding: 20px;
     color: #fff;
     ;
@@ -957,8 +957,7 @@ input[type='email'] {
     background-image: url(../../uploads/short_desc.jpg);
     background-size: cover;
     background-position: center;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 60px; 
 }
 
 .main_about .data {}

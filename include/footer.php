@@ -59,38 +59,35 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="info">
-                        <h4> هاكم </h4>
-                        <p> منصة لوجستية تربط بين المرسلين لمستنداتهم
-                            والمسافرين بجمعهم في منصة واحدة ، بسعر أفضل ووقت أقصر </p>
+                        <h4> مجموعة بناء </h4>
+                        <p> خبراء بناء الإنسان عبر منظومه برامجية عالمية
+                            قيادياً وقيمياً ومهارياً</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="info">
                         <h4> روابط </h4>
                         <ul class="list-unstyled">
-                            <li> <a href="travels"> الرحلات </a> </li>
-                            <li> <a href="products"> الشحنات </a> </li>
-                            <li> <a href="contact_us"> تواصل معنا </a> </li>
+                            <li> <a href="index"> الرئيسية </a> </li>
+                            <li> <a href="about_us"> من نحن </a> </li>
                             <li> <a href="privacy_policy"> سياسة الخصوصية </a> </li>
+                            <li> <a href="terms-and-conditions">شروط الاستخدام</a> </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="info">
                         <h4> تواصل معنا </h4>
-                        <ul class="list-unstyled">
-                            <li> <i class="fa fa-envelope"></i> info@hukum.com </li>
-                            <li> <i class="fa fa-phone"></i>0100000000000 </li>
-                        </ul>
                         <ul class="list-unstyled social_media">
-                            <li> <a href="#"> <i class="fa fa-facebook"></i> </a> </li>
-                            <li> <a href="#"> <i class="fa fa-twitter"></i> </a> </li>
-                            <li> <a href="#"> <i class="fa fa-instagram"></i> </a> </li>
-                            <li> <a target="_blank" href="https://wa.me/+201011642731"> <i class="fa fa-whatsapp"></i> </a> </li>
+                            <li> <a target="_blank" href="https://www.youtube.com/@BenaaEdu"> <i class="fa fa-youtube"></i> </a> </li>
+                            <li> <a target="_blank" href="https://twitter.com/BenaaEDU"> <i class="fa fa-twitter"></i> </a> </li>
+                            <li> <a target="_blank" href="https://www.instagram.com/benaaedu/"> <i class="fa fa-instagram"></i> </a> </li>
+
+                            <li> <a target="_blank" href="https://www.linkedin.com/school/benaaedu/"> <i class="fa fa-linkedin"></i> </a> </li>
                         </ul>
                     </div>
                 </div>
-                <p class="copy_right"> جميع الحقوق محفوظة 2023 &copy; هياكم </p>
+                <p class="copy_right"> جميع الحقوق محفوظة 2023 &copy; <strong> <span style="color: #fff;"> مجموعة بناء </span></strong> بواسطة <span> <strong> <a style="color: var(--third-color); text-decoration: none;" href="https://wa.me/+201011642731"> Mr </a> </strong> </span></p>
             </div>
         </div>
     </div>

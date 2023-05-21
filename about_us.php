@@ -62,6 +62,59 @@ include 'init.php';
     </div>
 </div>
 <!-- END MAIN BACKGROUND -->
+<!-- START BENNA CAT -->
+<!-- START ABOUT US  -->
+<div class="about_us">
+    <div class="container">
+        <div class="data">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="info">
+                        <h2> أقسام مجموعة بناء : </h2>
+                        <strong style="color: var(--third-color);"> بناء الخبرة </strong>
+                        <p> منشأة مجتمعية تعنى بصناعة المبادرات وابتكارها، والتأهيل والتمكين على الاعتمادات العالمية وبناء أفضل المقاييس. </p>
+                    </div>
+                    <div class="info">
+                        <strong style="color: var(--third-color);"> بناء المجتمع</strong>
+                        <p> شركة لا ربحية تعنى بتقديم البرامج والمبادرات المجتمعية لمراحل التعليم المختلفة، من خلال منهجيات وبرامج معتمدة محليا أو عالميا. </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="info">
+                        <img src="uploads/main_about.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END ABOUT US -->
+<!-- START ABOUT US  -->
+<div class="about_us" style="padding-top: 50px;">
+    <div class="container">
+        <div class="data">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="info">
+                        <strong style="color: var(--third-color);">رؤيتنا</strong>
+                        <p> بناء جيل متوازن ومثقف وواع بما يحيط به من التغييرات إضافة إلى تحليه بصفات القائد </p>
+                    </div>
+                    <div class="info">
+                        <strong style="color: var(--third-color);"> رسالتنا </strong>
+                        <p> بناء نطاقًا واسعًا من المنتجات التربوية التي تُعنى بتطوير الإنسان في جميع أبعاده الشخصية، وصولاً به إلى السويَّة الفاعلة المؤثِّرة، والساعية لتنمية المجتمع، وريادته </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="info">
+                        <img src="uploads/vision.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END ABOUT US -->
+<!-- END BENNA CAT -->
 <?php
 
 include $tem . 'footer.php';

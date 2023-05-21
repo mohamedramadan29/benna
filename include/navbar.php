@@ -31,7 +31,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="contact_us" href="contact_us"> المدونة </a>
+          <a class="nav-link" id="contact_us" href="#"> المدونة </a>
         </li>
 
         <?php
