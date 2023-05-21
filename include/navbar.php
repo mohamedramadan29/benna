@@ -9,14 +9,26 @@
         <li class="nav-item">
           <a class="nav-link" id="index" aria-current="page" href="index">الرئيسية</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" id="travels" href="travels"> رحلات </a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            الاقسام
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <?php
+            $stmt = $connect->prepare("SELECT * FROM categories");
+            $stmt->execute();
+            $allcat = $stmt->fetchAll();
+            foreach ($allcat as $cat) {
+            ?>
+              <li><a class="dropdown-item" href="category?id=<?php echo $cat['id']; ?>"> <?php echo $cat['name'];?> </a></li>
+            <?php
+            }
+            ?>
+
+          </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="products" href="products"> شحنات </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="contact_us" href="contact_us"> تواصل معنا </a>
+          <a class="nav-link" id="contact_us" href="contact_us"> المدونة </a>
         </li>
 
         <?php

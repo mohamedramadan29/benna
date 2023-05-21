@@ -1,6 +1,6 @@
 <?php
 ob_start();
-$dsn = 'mysql:host=localhost;dbname=hakum';
+$dsn = 'mysql:host=localhost;dbname=benna';
 $username = 'root';
 $password = '';
 $option = [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'];
@@ -12,4 +12,3 @@ try {
     echo 'failed to connect' . $e->getMessage();
 }
 ob_end_flush();
-?>

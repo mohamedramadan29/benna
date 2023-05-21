@@ -85,31 +85,27 @@ include 'init.php';
 <div class="categories">
     <div class="container-fluid">
         <div class="data">
+            <h2> المجموعات </h2>
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="info">
-                        <img src="uploads/cat1.webp" alt="">
-                        <a href="category"> بناء القيادات </a>
+                <?php
+                $stmt = $connect->prepare("SELECT * FROM categories");
+                $stmt->execute();
+                $allcat = $stmt->fetchAll();
+                foreach ($allcat as $cat) {
+                ?>
+                    <div class="col-lg-3">
+                        <a href="category?id=<?php echo $cat['id']; ?>">
+                            <div class="info">
+                                <div class="image">
+                                    <img src="admin/benna_categories/images/<?php echo $cat['main_image']; ?>" alt="">
+                                </div>
+                                <a class="link_text" href="category?id=<?php echo $cat['id']; ?>"> <?php echo $cat['name']; ?> </a>
+                            </div>
+                        </a>
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="info">
-                        <img src="uploads/cat1.webp" alt="">
-                        <a href="#"> بناء الشباب الطفل</a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="info">
-                        <img src="uploads/cat1.webp" alt="">
-                        <a href="#">بناء الجهات</a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="info">
-                        <img src="uploads/cat1.webp" alt="">
-                        <a href="#"> المقاييس </a>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </div>

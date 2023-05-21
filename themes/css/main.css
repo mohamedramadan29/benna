@@ -44,16 +44,10 @@ body {
     text-align: center;
 }
 
-.dropdown-toggle::after {
-    display: none;
-}
+
 
 .navbar .notification i {
     color: #858181;
-}
-
-.navbar .dropdown {
-    top: -6px;
 }
 
 .navbar .dropdown img {
@@ -77,9 +71,19 @@ body {
 }
 
 .dropdown-item:focus,
+.dropdown-item {
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.dropdown-item:focus,
 .dropdown-item:hover {
-    background-color: var(--second-color);
+    background-color: var(--main-color);
     color: #fff;
+}
+
+.dropdown-menu {
+    min-width: 12rem;
 }
 
 .navbar a {
@@ -234,20 +238,28 @@ END ABOUT US SECTION
 .categories .data {}
 
 .categories .data .info {
-    box-shadow: 0px 0px 6px 2px #ccc;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 0 0 15px 0;
+    margin-bottom: 20px;
+    border: 1px solid #efefef;
 }
-
+.categories .data .info .image{
+    position: relative;
+    overflow: hidden;
+    
+}
+.categories .data .info:hover img{
+    transform: scale(1.19);
+}
 .categories .data .info img {
     max-width: 100%;
-    border-radius: 10px 10px 0 0;
+    border-radius: 5px 5px 0 0;
     min-height: 230px;
+    transition: all 1s ease-in-out;
 }
 
-.categories .data .info a {
-    margin-top: 35px;
-    font-weight: bold;
+.categories .data .info .link_text {
+    margin-top: 35px; 
     font-size: 25px;
     color: var(--main-color);
     display: block;
@@ -841,8 +853,7 @@ input[type='email'] {
 
     margin-bottom: 50px;
     color: var(--main-color);
-    font-size: 35px;
-    font-weight: 600;
+    font-size: 35px; 
 
 }
 
