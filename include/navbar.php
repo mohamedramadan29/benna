@@ -9,6 +9,9 @@
         <li class="nav-item">
           <a class="nav-link" id="index" aria-current="page" href="index">الرئيسية</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" id="about_us" href="about_us">عن بناء </a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             الاقسام
@@ -20,7 +23,7 @@
             $allcat = $stmt->fetchAll();
             foreach ($allcat as $cat) {
             ?>
-              <li><a class="dropdown-item" href="category?id=<?php echo $cat['id']; ?>"> <?php echo $cat['name'];?> </a></li>
+              <li><a class="dropdown-item" href="category?id=<?php echo $cat['id']; ?>"> <?php echo $cat['name']; ?> </a></li>
             <?php
             }
             ?>

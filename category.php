@@ -68,12 +68,12 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                         foreach ($projects as $project) {
                         ?>
                             <div class="col-lg-4">
-                                <a href="project?<?php echo $project['id']; ?>">
+                                <a href="project?id=<?php echo $project['id']; ?>">
                                     <div class="info">
                                         <div class="image">
                                             <img src="admin/projects/images/<?php echo $project['image']; ?>" alt="">
                                         </div>
-                                        <a href="project?<?php echo $project['id']; ?>" class="link_text"> <?php echo $project['name']; ?> </a>
+                                        <a href="project?id=<?php echo $project['id']; ?>" class="link_text"> <?php echo $project['name']; ?> </a>
                                     </div>
                                 </a>
                             </div>
