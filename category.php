@@ -2,78 +2,97 @@
 $page_title = ' مجموعة  بناء  ';
 session_start();
 include 'init.php';
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    $cat_id = $_GET['id'];
+    $stmt = $connect->prepare("SELECT * FROM categories where id = ?");
+    $stmt->execute(array($cat_id));
+    $cat_data = $stmt->fetch();
+    $cat_name = $cat_data['name'];
+    $cat_image = $cat_data['main_image'];
+    $cat_desc = $cat_data['description'];
+    $count = $stmt->rowCount();
+    if ($count > 0) {
 ?>
-<!-- START HERO SECTION  -->
-<div class="category" style="background-image: url(uploads/background.jpg); background-size: cover; background-position: center; ">
-    <div class="overlay">
-        <div class="container">
-            <div class="data">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="info">
-                            <h2>
-                                بناء الجهات</h2>
-                            <p> <a href="index"> الرئيسية </a> / بناء الجهات </p>
+
+        <!-- START HERO SECTION  -->
+        <div class="category" style="background-image: url(admin/benna_categories/images/<?php echo $cat_image; ?>); background-size: cover; background-position: center; ">
+            <div class="overlay">
+                <div class="container">
+                    <div class="data">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="info">
+                                    <h2>
+                                        <?php echo $cat_name ?> </h2>
+                                    <p> <a href="index"> الرئيسية </a> / <?php echo $cat_name; ?> </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- END HERO SECTION  -->
-<!-- START ABOUT US  -->
-<div class="about_us">
-    <div class="container">
-        <div class="data">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="info">
-                        <h2>مجموعة بناء للخدمات والمنتجات التربوية والتعليمية:</h2>
-                        <p> بلور فكرتها وأسسها الدكتور غسان بن محمد الصديقي أوائل عام 1424هـ
-                            لغرض تقديم برامج واستشارات تربوية وخدمات علمية ودورات تدريبية ومقاييس شخصية وفق أسس علمية حديثة في التربية وبناء الإنسان للمساهمة في تحقيق المجتمع الرائد. ومجموعة بناء عبارة عن نطاق واسع من المنتجات التربوية التي تُعنى ببناء الإنسان في جميع أبعاده الشخصية وصولاً به إلى الشخصية السويَّة الفاعلة المؤثِّرة في تنمية مجتمعها وريادته . </p>
+        <!-- END HERO SECTION  -->
+        <!-- START ABOUT US  -->
+        <div class="about_us">
+            <div class="container">
+                <div class="data">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="info">
+                                <h2> <?php echo $cat_name; ?> :</h2>
+                                <p> <?php echo $cat_desc; ?> </p>
 
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="info">
-                        <img src="uploads/about.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- END ABOUT US -->
-<!-- START CATEGORIES  -->
-<div class="categories">
-    <div class="container-fluid">
-        <div class="data">
-            <h2> المشاريع </h2>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="info">
-                        <img src="uploads/cat1.webp" alt="">
-                        <a href="project"> بناء القيادات </a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="info">
-                        <img src="uploads/cat1.webp" alt="">
-                        <a href="#"> بناء الشباب الطفل</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="info">
-                        <img src="uploads/cat1.webp" alt="">
-                        <a href="#">بناء الجهات</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="info">
+                                <img src="admin/benna_categories/images/<?php echo $cat_image; ?>" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- END CATEGORIES  -->
+        <!-- END ABOUT US -->
+        <!-- START CATEGORIES  -->
+        <div class="categories">
+            <div class="container-fluid">
+                <div class="data">
+                    <h2> المشاريع </h2>
+                    <div class="row">
+                        <?php
+                        $stmt = $connect->prepare("SELECT * FROM projects WHERE cat_id=?");
+                        $stmt->execute(array($cat_id));
+                        $projects = $stmt->fetchAll();
+                        foreach ($projects as $project) {
+                        ?>
+                            <div class="col-lg-4">
+                                <a href="project?<?php echo $project['id']; ?>">
+                                    <div class="info">
+                                        <div class="image">
+                                            <img src="admin/projects/images/<?php echo $project['image']; ?>" alt="">
+                                        </div>
+                                        <a href="project?<?php echo $project['id']; ?>" class="link_text"> <?php echo $project['name']; ?> </a>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php
+                        }
+
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END CATEGORIES  -->
 <?php
 
-include $tem . 'footer.php';
+        include $tem . 'footer.php';
+    } else {
+        header("Location:index");
+        exit();
+    }
+}
+
+?>
