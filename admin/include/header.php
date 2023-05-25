@@ -33,8 +33,9 @@
   <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
   <!-- summernote -->
-  <link rel="stylesheet" href="plugins/ekko-lightbox/ekko-lightbox.css">
-  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="plugins/ekko-lightbox/ekko-lightbox.css"> 
+  <!-- custome text editor -->
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- SweetAlert2 -->
