@@ -1,12 +1,8 @@
 <?php
 if (isset($_POST['add_cat'])) {
     $name = $_POST['name'];
-    $slug = createSlug($name);
-    $parent = $_POST['parent_id'];
     $description = $_POST['description'];
-    if ($parent == 0) {
-        $parent = null;
-    }
+    $slug = createSlug($name);
     $formerror = [];
     if (empty($name)) {
         $formerror[] = 'من فضلك ادخل اسم القسم';
@@ -20,23 +16,22 @@ if (isset($_POST['add_cat'])) {
         $main_image_uploaded = time() . '_' . $main_image_name;
         move_uploaded_file(
             $main_image_temp,
-            'category_images/' . $main_image_uploaded
+            'post_categories/images/' . $main_image_uploaded
         );
     } else {
         $main_image_uploaded = '';
     }
 
-    $stmt = $connect->prepare("SELECT * FROM categories WHERE slug = ?");
-    $stmt->execute(array($slug));
+    $stmt = $connect->prepare("SELECT * FROM category_posts WHERE name = ?");
+    $stmt->execute(array($name));
     $count = $stmt->rowCount();
     if ($count > 0) {
         $formerror[] = ' اسم القسم موجود من قبل من فضلك ادخل اسم اخر  ';
     }
     if (empty($formerror)) {
-        $stmt = $connect->prepare("INSERT INTO categories (parent_id , name, slug,image,description)
-        VALUES (:zparent,:zname,:zslug,:zimage,:zdesc)");
+        $stmt = $connect->prepare("INSERT INTO category_posts (name,slug,main_image,description)
+        VALUES (:zname,:zslug,:zimage,:zdesc)");
         $stmt->execute(array(
-            "zparent" => $parent,
             "zname" => $name,
             "zslug" => $slug,
             "zimage" => $main_image_uploaded,
@@ -44,11 +39,11 @@ if (isset($_POST['add_cat'])) {
         ));
         if ($stmt) {
             $_SESSION['success_message'] = " تمت الأضافة بنجاح  ";
-            header('Location:main?dir=categories&page=report');
+            header('Location:main?dir=post_categories&page=report');
         }
     } else {
         $_SESSION['error_messages'] = $formerror;
-        header('Location:main?dir=categories&page=report');
+        header('Location:main?dir=post_categories&page=report');
         exit();
     }
 }
