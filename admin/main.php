@@ -61,9 +61,29 @@ if (isset($_SESSION['username'])) {
         include "advisors/report.php";
     }
 
+    // START POST CATEGORY 
 
+    if ($dir == 'post_categories' && $page == 'add') {
+        include "post_categories/add.php";
+    } elseif ($dir == 'post_categories' && $page == 'edit') {
+        include "post_categories/edit.php";
+    } elseif ($dir == 'post_categories' && $page == 'delete') {
+        include 'post_categories/delete.php';
+    } elseif ($dir == 'post_categories' && $page == 'report') {
+        include "post_categories/report.php";
+    }
 
+       // START POSTS 
 
+    if ($dir == 'posts' && $page == 'add') {
+        include "posts/add.php";
+    } elseif ($dir == 'posts' && $page == 'edit') {
+        include "posts/edit.php";
+    } elseif ($dir == 'posts' && $page == 'delete') {
+        include 'posts/delete.php';
+    } elseif ($dir == 'posts' && $page == 'report') {
+        include "posts/report.php";
+    }
 
 
     // END BENNA CATEGROIES 

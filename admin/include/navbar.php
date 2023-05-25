@@ -35,11 +35,9 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="main.php?dir=dashboard&page=dashboard" class="brand-link">
-        <span class="brand-text font-weight-light"> مشتلي </span>
+        <span class="brand-text font-weight-light"> مجموعه بناء  </span>
         <img src="uploads/logo.png" alt="AdminLTE Logo" class="brand-image elevation-3" style="box-shadow: none;">
-
       </a>
-
       <!-- Sidebar -->
       <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
@@ -55,7 +53,7 @@
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+              with font-awesome or any other icon font library -->
             <li class="nav-item">
               <a href="main.php?dir=dashboard&page=dashboard" class="nav-link">
                 <p>
@@ -104,6 +102,27 @@
                 <li class="nav-item">
                   <a href="main.php?dir=projects&page=report" class="nav-link">
                     <p> جميع المشاريع </p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <span style='border:2px solid #ccc; display:block;'></span>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <p>
+                  المدونة
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="main.php?dir=post_categories&page=report" class="nav-link">
+                    <p> الاقسام  </p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="main.php?dir=posts&page=report" class="nav-link">
+                    <p> المقالات   </p>
                   </a>
                 </li>
               </ul>

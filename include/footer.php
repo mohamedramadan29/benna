@@ -1,4 +1,4 @@
-<!-- START SHORT CONATCT -->
+<!-- START SHORT CONATCT
 <div class="short_contact">
     <div class="overlay">
         <div class="container">
@@ -15,6 +15,7 @@
         </div>
     </div>
 </div>
+ -->
 <!-- END SHORT CONTACT -->
 <!-- START BRANDS  -->
 <div class="brands">
@@ -79,11 +80,15 @@
                     <div class="info">
                         <h4> تواصل معنا </h4>
                         <ul class="list-unstyled social_media">
+                            <!--
                             <li> <a target="_blank" href="https://www.youtube.com/@BenaaEdu"> <i class="fa fa-youtube"></i> </a> </li>
+-->
                             <li> <a target="_blank" href="https://twitter.com/BenaaEDU"> <i class="fa fa-twitter"></i> </a> </li>
+                            <!--
                             <li> <a target="_blank" href="https://www.instagram.com/benaaedu/"> <i class="fa fa-instagram"></i> </a> </li>
-
+-->
                             <li> <a target="_blank" href="https://www.linkedin.com/school/benaaedu/"> <i class="fa fa-linkedin"></i> </a> </li>
+                            <li> <a target="_blank" href="https://wa.me/966554434266"> <i class="fa fa-whatsapp"></i> </a> </li>
                         </ul>
                     </div>
                 </div>

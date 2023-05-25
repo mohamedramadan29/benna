@@ -23,7 +23,7 @@ include 'init.php';
     </div>
 </div>
 <!-- END HERO SECTION  -->
-<!-- START SUB INFO -->
+<!-- START SUB INFO 
 <div class="how_work">
     <div class="container">
         <div class="data">
@@ -57,6 +57,7 @@ include 'init.php';
         </div>
     </div>
 </div>
+-->
 <!-- END SUB INFO  -->
 <!-- START ABOUT US  -->
 <div class="about_us">
@@ -85,7 +86,7 @@ include 'init.php';
 <div class="categories">
     <div class="container-fluid">
         <div class="data">
-            <h2> المجموعات </h2>
+            <h2> الأقسام  </h2>
             <div class="row">
                 <?php
                 $stmt = $connect->prepare("SELECT * FROM categories");
