@@ -982,13 +982,11 @@ input[type='email'] {
     line-height: 1.9;
     font-size: 17px;
 }
-.main_about .data .info{
-    text-align: center; 
+.main_about .data .info{ 
     margin-bottom: 20px;
     padding: 10px;
     box-shadow: 0px 0px 4px #ccc;
-    border-radius: 5px;
-    min-height: 230px;
+    border-radius: 5px; 
 }
 .main_about .data .info h3{
 font-size: 20px;

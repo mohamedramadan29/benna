@@ -2,9 +2,42 @@
 $page_title = ' عن بناء   ';
 session_start();
 include 'init.php';
+$stmt = $connect->prepare("SELECT * FROM about_page ORDER BY id DESC LIMIT 1");
+$stmt->execute();
+$page_data = $stmt->fetch();
+
+$banner_head = $page_data['banner_head'];
+$about_head = $page_data['about_head'];
+$about_short_head = $page_data['about_short_head'];
+$about_description = $page_data['about_description'];
+$about_head_short1 = $page_data['about_head_short1'];
+$about_head_short2 = $page_data['about_head_short2'];
+$about_head_short3 = $page_data['about_head_short3'];
+$about_head_short4 = $page_data['about_head_short4'];
+$about_desc_short1 = $page_data['about_desc_short1'];
+$about_desc_short2 = $page_data['about_desc_short2'];
+$about_desc_short3 = $page_data['about_desc_short3'];
+$about_desc_short4 = $page_data['about_desc_short4'];
+$benna_main_head = $page_data['benna_main_head'];
+$benna_head1 = $page_data['benna_head1'];
+$benna_head2 = $page_data['benna_head2'];
+$benna_desc1 = $page_data['benna_desc1'];
+$benna_desc2 = $page_data['benna_desc2'];
+$vision_head = $page_data['vision_head'];
+$vision_desc = $page_data['vision_desc'];
+$message_head = $page_data['message_head'];
+$message_desc = $page_data['message_desc'];
+/* /////////////////////////// */
+$banner_image = $page_data['banner_image'];
+$benna_main_image = $page_data['benna_main_image'];
+$vision_image = $page_data['vision_image'];
+$more_images = $page_data['more_images'];
+$images = explode(",", $more_images);
+$countfile = count($images) - 1;
 ?>
 <!-- START HERO SECTION  -->
-<div class="category" style="background-image: url(uploads/about.jpg); background-size: cover; background-position: center; ">
+<div class="category"
+    style="background-image: url(admin/pages/about_images/<?php echo $banner_image ?>); background-size: cover; background-position: center; ">
     <div class="overlay">
         <div class="container">
             <div class="data">
@@ -12,8 +45,11 @@ include 'init.php';
                     <div class="col-12">
                         <div class="info">
                             <h2>
-                                عن بناء </h2>
-                            <p> <a href="index"> الرئيسية </a> / عن بناء </p>
+                                <?php echo $banner_head; ?>
+                            </h2>
+                            <p> <a href="index"> الرئيسية </a> /
+                                <?php echo $banner_head; ?>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -24,37 +60,58 @@ include 'init.php';
 <!-- END HERO SECTION  -->
 <!-- START MAIN BACKGROUND -->
 <div class="main_about">
-    <div class="container-fluid">
+    <div class="container">
         <div class="data">
             <div class="main_info">
-                <h2> مجموعة بناء </h2>
-                <h6> مجموعة بناء للخدمات والمنتجات التربوية والتعليمية: </h6>
-                <p> بلور فكرتها وأسسها الدكتور غسان بن محمد الصديقي أوائل عام 1424هـ لغرض تقديم برامج واستشارات تربوية وخدمات علمية ودورات تدريبية ومقاييس شخصية وفق أسس علمية حديثة في التربية وبناء الإنسان للمساهمة في تحقيق المجتمع الرائد. ومجموعة بناء عبارة عن نطاق واسع من المنتجات التربوية التي تُعنى ببناء الإنسان في جميع أبعاده الشخصية وصولاً به إلى الشخصية السويَّة الفاعلة المؤثِّرة في تنمية مجتمعها وريادته . ومجموعة بناء ملتزمة بتوفير خدماتها التربوية المتنوعة وفقًا لسياستها المستمدة من رسالتها وقيمها ومبادئها المعلنة.
-                    تتمحور خدمات مجموعة بناء التربوية ومنتجاتها في أربعة نطاقات رئيسة، <strong>هي</strong>:</p>
+                <h2>
+                    <?php echo $about_head; ?>
+                </h2>
+                <h6>
+                    <?php echo $about_short_head; ?>
+                </h6>
+                <p>
+                    <?php echo $about_description; ?>
+                </p>
             </div>
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-12">
                     <div class="info">
-                        <h3> منظومة بناء التربوية: </h3>
-                        <p>وهي حزمة من البرامج التربوية المتكاملة التي تُعنى بالفرد من سن الخامسة إلى السادسة والعشرين ممتدة إلى ما بعدها من السنوات، وملبية لاحتياجات كل فئة. </p>
+                        <h3>
+                            <?php echo $about_head_short1; ?>
+                        </h3>
+                        <p>
+                            <?php echo $about_desc_short1; ?>
+                        </p>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-12">
                     <div class="info">
-                        <h3> الدورات التدريبية: </h3>
-                        <p> وهي كذلك حزمة من الدورات التدريبية التي تُعنى بتكوين الاتجاهات الإيجابية، وإكساب المهارات الحياتية وفق الأساليب المتقدمة في إعداد الحقائب التدريبية. </p>
+                        <h3>
+                            <?php echo $about_head_short2; ?>
+                        </h3>
+                        <p>
+                            <?php echo $about_desc_short2; ?>
+                        </p>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-12">
                     <div class="info">
-                        <h3> الاستشارات: </h3>
-                        <p> وتُعنى بدراسة الحالات الآنية للأفراد والمؤسسات التربوية، وتقديم المقترحات التربوية، والخطط النهضوية والعلاجية التي تدفع بهما إلى تجاوز الصعوبات والعوائق، وإلى التطوير المرحلي والمستقبلي لهما. </p>
+                        <h3>
+                            <?php echo $about_head_short3; ?>
+                        </h3>
+                        <p>
+                            <?php echo $about_desc_short3; ?>
+                        </p>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-12">
                     <div class="info">
-                        <h3> القياس: </h3>
-                        <p> منظومة متنوعة من المقاييس الشخصية للأطفال والشباب والراشدين تكشف عن إمكاناتهم وقدراتهم وأنماط تعلمهم وأنواع ذكاءاتهم والتخصصات الأكاديمية والمهن المناسبة لقدراتهم ومهاراتهم وغير ذلك مما يتعلق بخصائص شخصياتهم. </p>
+                        <h3>
+                            <?php echo $about_head_short4; ?>
+                        </h3>
+                        <p>
+                            <?php echo $about_desc_short4; ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -70,18 +127,28 @@ include 'init.php';
             <div class="row">
                 <div class="col-lg-6">
                     <div class="info">
-                        <h2> أقسام مجموعة بناء : </h2>
-                        <strong style="color: var(--third-color);"> بناء الخبرة </strong>
-                        <p> منشأة مجتمعية تعنى بصناعة المبادرات وابتكارها، والتأهيل والتمكين على الاعتمادات العالمية وبناء أفضل المقاييس. </p>
+                        <h2>
+                            <?php echo $benna_main_head; ?>
+                        </h2>
+                        <strong style="color: var(--third-color);">
+                            <?php echo $benna_head1; ?>
+                        </strong>
+                        <p>
+                            <?php echo $benna_desc1; ?>
+                        </p>
                     </div>
                     <div class="info">
-                        <strong style="color: var(--third-color);"> بناء المجتمع</strong>
-                        <p> شركة لا ربحية تعنى بتقديم البرامج والمبادرات المجتمعية لمراحل التعليم المختلفة، من خلال منهجيات وبرامج معتمدة محليا أو عالميا. </p>
+                        <strong style="color: var(--third-color);">
+                            <?php echo $benna_head2; ?>
+                        </strong>
+                        <p>
+                            <?php echo $benna_desc2; ?>
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="info">
-                        <img src="uploads/main_about.webp" alt="">
+                        <img src="admin/pages/about_images/<?php echo $benna_main_image ?>" alt="">
                     </div>
                 </div>
             </div>
@@ -96,17 +163,25 @@ include 'init.php';
             <div class="row">
                 <div class="col-lg-6">
                     <div class="info">
-                        <strong style="color: var(--third-color);">رؤيتنا</strong>
-                        <p> بناء جيل متوازن ومثقف وواع بما يحيط به من التغييرات إضافة إلى تحليه بصفات القائد </p>
+                        <strong style="color: var(--third-color);">
+                            <?php echo $vision_head; ?>
+                        </strong>
+                        <p>
+                            <?php echo $vision_desc; ?>
+                        </p>
                     </div>
                     <div class="info">
-                        <strong style="color: var(--third-color);"> رسالتنا </strong>
-                        <p> بناء نطاقًا واسعًا من المنتجات التربوية التي تُعنى بتطوير الإنسان في جميع أبعاده الشخصية، وصولاً به إلى السويَّة الفاعلة المؤثِّرة، والساعية لتنمية المجتمع، وريادته </p>
+                        <strong style="color: var(--third-color);">
+                            <?php echo $message_head; ?>
+                        </strong>
+                        <p>
+                            <?php echo $message_desc; ?>
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="info">
-                        <img src="uploads/vision.webp" alt="">
+                        <img src="admin/pages/about_images/<?php echo $vision_image ?>" alt="">
                     </div>
                 </div>
             </div>
@@ -121,36 +196,22 @@ include 'init.php';
         <div class="data">
             <div class="row" style="display: flex; align-items:center">
                 <div class="col-lg-1"></div>
-                <div class="col-lg-2">
-                    <div class="info">
-                        <img src="uploads/logo/1.webp" alt="">
+                <?php
+                for ($i = 0; $i < $countfile; ++$i) { ?>
+                    <div class="col-lg-2">
+                        <div class="">
+                            <img style="max-width: 100%;" src="admin/pages/about_images/<?= $images[$i] ?>"
+                                class="img-fluid mb-2" alt="المعرض" />
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="info">
-                        <img src="uploads/logo/2.webp" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="info">
-                        <img src="uploads/logo/3.webp" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="info">
-                        <img src="uploads/logo/4.webp" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="info">
-                        <img src="uploads/logo/5.webp" alt="">
-                    </div>
-                </div>
+                    <?php
+                }
+                ?>
             </div>
         </div>
     </div>
 </div>
-<!-- END BRANDS -->
+<!-- END BRANDS     -->
 
 <?php
 
