@@ -3,6 +3,7 @@ ob_start();
 $pagetitle = 'Home';
 session_start();
 include 'init.php';
+if(isset($_SESSION['admin_username'])){
 
 if (isset($_SESSION['admin_username'])) {
     include 'include/navbar.php';
@@ -29,6 +30,7 @@ if (isset($_SESSION['username'])) {
         include 'emp_dashboard.php';
     }
     // END DASHBAORD
+
 
     // START main BEANNA CATEGORIES 
     if ($dir == 'benna_categories' && $page == 'add') {
@@ -60,7 +62,17 @@ if (isset($_SESSION['username'])) {
     } elseif ($dir == 'advisors' && $page == 'report') {
         include "advisors/report.php";
     }
-
+    // START PAGES 
+    if ($dir == 'pages' && $page == 'home') {
+        include "pages/home.php";
+    } elseif ($dir == 'pages' && $page == 'edit_home') {
+        include "pages/edit_home.php";
+    } elseif ($dir == 'pages' && $page == 'about') {
+        include 'pages/about.php';
+    } elseif ($dir == 'pages' && $page == 'edit_about') {
+        include "pages/edit_about.php";
+    }
+    // END PAGES 
     // START POST CATEGORY 
 
     if ($dir == 'post_categories' && $page == 'add') {
@@ -73,7 +85,7 @@ if (isset($_SESSION['username'])) {
         include "post_categories/report.php";
     }
 
-       // START POSTS 
+    // START POSTS 
 
     if ($dir == 'posts' && $page == 'add') {
         include "posts/add.php";
@@ -84,22 +96,17 @@ if (isset($_SESSION['username'])) {
     } elseif ($dir == 'posts' && $page == 'report') {
         include "posts/report.php";
     }
-
-
-    // END BENNA CATEGROIES 
-
-    // START Category
-    if ($dir == 'categories' && $page == 'add') {
-        include "categories/add.php";
-    } elseif ($dir == 'categories' && $page == 'edit') {
-        include "categories/edit.php";
-    } elseif ($dir == 'categories' && $page == 'delete') {
-        include 'categories/delete.php';
-    } elseif ($dir == 'categories' && $page == 'report') {
-        include "categories/report.php";
+    // START shop  Category
+    if ($dir == 'shop_categories' && $page == 'add') {
+        include "shop_categories/add.php";
+    } elseif ($dir == 'shop_categories' && $page == 'edit') {
+        include "shop_categories/edit.php";
+    } elseif ($dir == 'shop_categories' && $page == 'delete') {
+        include 'shop_categories/delete.php';
+    } elseif ($dir == 'shop_categories' && $page == 'report') {
+        include "shop_categories/report.php";
     }
-
-    // START products
+ // START products
     if ($dir == 'products' && $page == 'add') {
         include "products/add.php";
     } elseif ($dir == 'products' && $page == 'edit') {
@@ -111,6 +118,8 @@ if (isset($_SESSION['username'])) {
     } elseif ($dir == 'products' && $page == 'get_variation') {
         include "products/get_variation.php";
     }
+    // END BENNA CATEGROIES 
+
     // START orders
     if ($dir == 'orders' && $page == 'add') {
         include "orders/add.php";
@@ -190,4 +199,8 @@ if (isset($_SESSION['username'])) {
 
 <?php
 include $tem . "footer.php";
-?>
+
+}else{
+    header("Location:index");
+    exit();
+}

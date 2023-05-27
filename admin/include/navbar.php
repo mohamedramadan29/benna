@@ -106,7 +106,28 @@
                 </li>
               </ul>
             </li>
-            <span style='border:2px solid #ccc; display:block;'></span>
+            <span style='border:2px dotted  #fff; display:block;'></span>
+              <li class="nav-item">
+              <a href="#" class="nav-link">
+                <p>
+                  الصفحات الرئيسية 
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="main.php?dir=pages&page=home" class="nav-link">
+                    <p> الرئيسية   </p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="main.php?dir=pages&page=about" class="nav-link">
+                    <p> من نحن    </p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <span style='border:2px dotted  #fff; display:block;'></span>
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <p>
@@ -127,9 +148,16 @@
                 </li>
               </ul>
             </li>
-            <!--
-            <li class="nav-item">
+            <span style='border:2px dotted  #fff; display:block;'></span>
+                <li class="nav-item">
               <a href="#" class="nav-link">
+                <p>
+                  المتجر
+                </p>
+              </a>  
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">
                 <p>
                   الأقسام
                   <i class="right fas fa-angle-left"></i>
@@ -137,7 +165,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="main.php?dir=categories&page=report" class="nav-link">
+                  <a href="main.php?dir=shop_categories&page=report" class="nav-link">
                     <p> جميع الأقسام </p>
                   </a>
                 </li>
@@ -163,6 +191,7 @@
                 </li>
               </ul>
             </li>
+            <!--
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <p>
@@ -203,6 +232,7 @@
                 </li>
               </ul>
             </li>
+  -->
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <p>
@@ -210,7 +240,7 @@
                 </p>
               </a>
             </li> 
-  -->
+ 
             <li class="nav-item">
               <a href="logout" class="nav-link" style="color: #e74c3c;">
                 <p>

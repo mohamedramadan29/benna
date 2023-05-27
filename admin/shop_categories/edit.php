@@ -26,27 +26,27 @@ if (isset($_POST['edit_cat'])) {
         $main_image_uploaded = '';
     }
 
-    $stmt = $connect->prepare("SELECT * FROM categories WHERE slug = ?");
+    $stmt = $connect->prepare("SELECT * FROM shop_categories WHERE slug = ?");
     $stmt->execute(array($slug));
     $count = $stmt->rowCount();
     if ($count > 0) {
         $formerror[] = ' اسم القسم موجود من قبل من فضلك ادخل اسم اخر  ';
     }
     if (empty($formerror)) {
-        $stmt = $connect->prepare("UPDATE categories SET parent_id=?,name=?,description=? WHERE id = ? ");
+        $stmt = $connect->prepare("UPDATE shop_categories SET parent_id=?,name=?,description=? WHERE id = ? ");
         $stmt->execute(array($parent, $name, $description, $cat_id));
         if (!empty($_FILES['main_image']['name'])) {
-            $stmt = $connect->prepare("UPDATE categories SET image=? WHERE id = ? ");
+            $stmt = $connect->prepare("UPDATE shop_categories SET image=? WHERE id = ? ");
             $stmt->execute(array($main_image_uploaded, $cat_id));
         }
         if ($stmt) {
             $_SESSION['success_message'] = "تم التعديل بنجاح ";
-            header('Location:main?dir=categories&page=report');
+            header('Location:main?dir=shop_categories&page=report');
             exit();
         }
     } else {
         $_SESSION['error_messages'] = $formerror;
-        header('Location:main?dir=categories&page=report');
+        header('Location:main?dir=shop_categories&page=report');
         exit();
     }
 }

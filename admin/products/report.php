@@ -92,7 +92,7 @@
                                             <td> <?php
                                                     if ($pro['cat_id'] != null) { ?>
                                                     <?php
-                                                        $stmt = $connect->prepare("SELECT * FROM categories WHERE id = ? LIMIT 1");
+                                                        $stmt = $connect->prepare("SELECT * FROM shop_categories WHERE id = ? LIMIT 1");
                                                         $stmt->execute(array($pro['cat_id']));
                                                         $sub_data = $stmt->fetch();
                                                     ?>

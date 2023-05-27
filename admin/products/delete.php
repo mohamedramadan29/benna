@@ -24,16 +24,13 @@ if (isset($_GET['pro_id']) && is_numeric($_GET['pro_id'])) {
         }
     }
     $count = $stmt->rowCount();
-    if ($count > 0) {
-        $stmt = $connect->prepare("DELETE FROM  product_details WHERE pro_id =?");
-        $stmt->execute(array($pro_id));
-        if ($stmt) {
+    if ($count > 0) { 
             $stmt = $connect->prepare('DELETE FROM products WHERE id=?');
             $stmt->execute([$pro_id]);
             if ($stmt) {
                 $_SESSION['success_message'] = " تم الحذف بنجاح  ";
                 header('Location:main?dir=products&page=report');
             }
-        }
+        
     }
 }

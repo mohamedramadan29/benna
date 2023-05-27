@@ -3,13 +3,13 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark"> الأقسام </h1>
+                <h1 class="m-0 text-dark"> اقسام المتجر </h1>
             </div>
             <!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-left">
                     <li class="breadcrumb-item"><a href="main.php?dir=dashboard&page=dashboard">الرئيسية</a></li>
-                    <li class="breadcrumb-item active"> الأقسام </li>
+                    <li class="breadcrumb-item active"> اقسام المتجر </li>
                 </ol>
             </div>
             <!-- /.col -->
@@ -81,7 +81,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $stmt = $connect->prepare("SELECT * FROM categories ORDER BY id DESC");
+                                    $stmt = $connect->prepare("SELECT * FROM shop_categories ORDER BY id DESC");
                                     $stmt->execute();
                                     $allcat = $stmt->fetchAll();
                                     $i = 0;
@@ -95,7 +95,7 @@
                                                     if ($cat['parent_id'] != 0) { ?>
                                                     <span class="badge badge-warning"> قسم فرعي </span>
                                                     <?php
-                                                        $stmt = $connect->prepare("SELECT * FROM categories WHERE id = ? LIMIT 1");
+                                                        $stmt = $connect->prepare("SELECT * FROM shop_categories WHERE id = ? LIMIT 1");
                                                         $stmt->execute(array($cat['parent_id']));
                                                         $sub_data = $stmt->fetch();
                                                     ?>
@@ -110,18 +110,12 @@
                                             </td>
                                             <td> <?php echo  $cat['slug']; ?> </td>
                                             <td>
-                                                <?php if (strpos($cat['image'], "https://www.mshtly.com") !== false){?>
-                                                    <img style="width: 80px; height:80px;" src="<?php echo $cat['image']; ?>" alt="">
-                                                <?php
-                                                }else{
-                                                    ?>
                                                     <img style="width: 80px; height:80px;" src="category_images/<?php echo $cat['image']; ?>" alt="">
-                                                    <?php
-                                                }?>
+                                                
                                             </td>
                                             <td>
                                                 <button type="button" class="btn btn-success btn-sm waves-effect" data-toggle="modal" data-target="#edit-Modal_<?php echo $cat['id']; ?>"> تعديل <i class='fa fa-pen'></i> </button>
-                                                <a href="main.php?dir=categories&page=delete&cat_id=<?php echo $cat['id']; ?>" class="confirm btn btn-danger btn-sm"> حذف <i class='fa fa-trash'></i> </a>
+                                                <a href="main.php?dir=shop_categories&page=delete&cat_id=<?php echo $cat['id']; ?>" class="confirm btn btn-danger btn-sm"> حذف <i class='fa fa-trash'></i> </a>
                                             </td>
                                         </tr>
                                         <!-- EDIT NEW CATEGORY MODAL   -->
@@ -131,7 +125,7 @@
                                                     <div class="modal-header">
                                                         <h4 class="modal-title"> تعديل القسم </h4>
                                                     </div>
-                                                    <form method="post" action="main.php?dir=categories&page=edit" enctype="multipart/form-data">
+                                                    <form method="post" action="main.php?dir=shop_categories&page=edit" enctype="multipart/form-data">
                                                         <div class="modal-body">
                                                             <div class="form-group">
                                                                 <input type='hidden' name="cat_id" value="<?php echo $cat['id']; ?>">
@@ -144,7 +138,7 @@
                                                                     <option value="0"> -- اختر -- </option>
                                                                     <option value="0" <?php if ($cat['parent_id'] == 0) echo 'selected'; ?>> بدون </option>
                                                                     <?php
-                                                                    $stmt = $connect->prepare("SELECT * FROM categories WHERE id != ?");
+                                                                    $stmt = $connect->prepare("SELECT * FROM shop_categories WHERE id != ?");
                                                                     $stmt->execute(array($cat['id']));
                                                                     $allcat = $stmt->fetchAll();
                                                                     foreach ($allcat as $cats) {
@@ -190,7 +184,7 @@
                             <div class="modal-header">
                                 <h4 class="modal-title">أضافة قسم </h4>
                             </div>
-                            <form action="main.php?dir=categories&page=add" method="post" enctype="multipart/form-data">
+                            <form action="main.php?dir=shop_categories&page=add" method="post" enctype="multipart/form-data">
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="Company-2" class="block"> الأسم </label>
@@ -202,7 +196,7 @@
                                             <option value="0"> -- اختر -- </option>
                                             <option value="0"> بدون </option>
                                             <?php
-                                            $stmt = $connect->prepare("SELECT * FROM categories");
+                                            $stmt = $connect->prepare("SELECT * FROM shop_categories");
                                             $stmt->execute();
                                             $allcat = $stmt->fetchAll();
                                             foreach ($allcat as $cat) {

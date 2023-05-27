@@ -10,8 +10,7 @@ if (isset($_GET['pro_id']) && is_numeric($_GET['pro_id'])) {
         $description = $_POST['description'];
         $product_adv = $_POST['product_adv'];
         $price = $_POST['price'];
-        $sale_price = $_POST['sale_price'];
-        $av_num = $_POST['av_num'];
+        $sale_price = $_POST['sale_price']; 
         $stmt = $connect->prepare("SELECT * FROM products WHERE slug = ? AND id !=?");
         $stmt->execute(array($slug, $pro_id));
         $count = $stmt->rowCount();
@@ -60,9 +59,9 @@ if (isset($_GET['pro_id']) && is_numeric($_GET['pro_id'])) {
 
         if (empty($formerror)) {
             $stmt = $connect->prepare("UPDATE products SET cat_id=? , name=? , description=?,product_adv=?,
-            price=?, sale_price=? , av_num=? WHERE id=?");
+            price=?, sale_price=? WHERE id=?");
             $stmt->execute(array(
-                $cat_id, $name, $description, $product_adv, $price,  $sale_price, $av_num, $pro_id
+                $cat_id, $name, $description, $product_adv, $price,  $sale_price, $pro_id
             ));
             if (!empty($_FILES['main_image']['name']) && $file_tmp != '') {
                 $stmt = $connect->prepare("UPDATE products SET main_image=?, more_images=? WHERE id=?");
@@ -178,7 +177,7 @@ if (isset($_GET['pro_id']) && is_numeric($_GET['pro_id'])) {
                                     <select required id="select2" class="form-control custom-select" name="cat_id">
                                         <option selected disabled> -- اختر -- </option>
                                         <?php
-                                        $stmt = $connect->prepare("SELECT * FROM categories");
+                                        $stmt = $connect->prepare("SELECT * FROM shop_categories");
                                         $stmt->execute();
                                         $allcat = $stmt->fetchAll();
                                         foreach ($allcat as $cat) {
@@ -217,6 +216,7 @@ if (isset($_GET['pro_id']) && is_numeric($_GET['pro_id'])) {
                                                                                                                             echo $pro_data['sale_price'];
                                                                                                                         }  ?>">
                                 </div>
+                                <!--
                                 <div class="form-group">
                                     <label for="inputEstimatedBudget"> العدد المتاح </label>
                                     <input type="number" id="av_num" name="av_num" class="form-control" value="<?php if (isset($_REQUEST['av_num'])) {
@@ -225,6 +225,7 @@ if (isset($_GET['pro_id']) && is_numeric($_GET['pro_id'])) {
                                                                                                                     echo $pro_data['av_num'];
                                                                                                                 } ?>">
                                 </div>
+                                                                                                            -->
                                 <div class="form-group">
                                     <label for="product_adv"> مميزات المنتج </label>
                                     <textarea id="product_adv" name="product_adv" class="form-control" rows="4"><?php if (isset($_REQUEST['product_adv'])) {
