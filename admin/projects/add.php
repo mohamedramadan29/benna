@@ -12,6 +12,20 @@ if (isset($_POST['add_cat'])) {
     if (empty($name)) {
         $formerror[] = 'من فضلك ادخل اسم القسم';
     }
+    // credit gallary 
+    $file = '';
+    $file_tmp = '';
+    $location = "";
+    $uploadplace = "projects/images/";
+    if (isset($_FILES['more_images']['name'])) {
+        foreach ($_FILES['more_images']['name'] as $key => $val) {
+            $file = $_FILES['more_images']['name'][$key];
+            $file = str_replace(' ', '', $file);
+            $file_tmp = $_FILES['more_images']['tmp_name'][$key];
+            move_uploaded_file($file_tmp, $uploadplace . $file);
+            $location .= $file . ",";
+        }
+    }
     // main image
     if (!empty($_FILES['main_image']['name'])) {
         $main_image_name = $_FILES['main_image']['name'];
@@ -34,18 +48,21 @@ if (isset($_POST['add_cat'])) {
         $formerror[] = ' اسم المشروع  موجود من قبل من فضلك ادخل اسم اخر  ';
     }
     if (empty($formerror)) {
-        $stmt = $connect->prepare("INSERT INTO projects (cat_id,name,short_desc,description,project_adv,advisors,image,contact_number)
-        VALUES (:zcat_id,:zname,:zshort_desc,:zdesc,:zadvantage,:zadvisor,:zimage,:zcontact_number)");
-        $stmt->execute(array(
-            "zcat_id" => $cat_id,
-            "zname" => $name,
-            "zshort_desc" => $short_desc,
-            "zdesc" => $description,
-            "zadvantage" => $project_adv,
-            "zadvisor" => $advisors,
-            "zimage" => $main_image_uploaded,
-            "zcontact_number" => $contact_number,
-        ));
+        $stmt = $connect->prepare("INSERT INTO projects (cat_id,name,short_desc,description,project_adv,advisors,image,contact_number,image_credits)
+        VALUES (:zcat_id,:zname,:zshort_desc,:zdesc,:zadvantage,:zadvisor,:zimage,:zcontact_number,:zimage_credit)");
+        $stmt->execute(
+            array(
+                "zcat_id" => $cat_id,
+                "zname" => $name,
+                "zshort_desc" => $short_desc,
+                "zdesc" => $description,
+                "zadvantage" => $project_adv,
+                "zadvisor" => $advisors,
+                "zimage" => $main_image_uploaded,
+                "zcontact_number" => $contact_number,
+                "zimage_credit" => $location
+            )
+        );
         if ($stmt) {
             $_SESSION['success_message'] = " تمت الأضافة بنجاح  ";
             header('Location:main?dir=projects&page=report');

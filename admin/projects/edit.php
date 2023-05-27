@@ -13,6 +13,20 @@ if (isset($_POST['edit_cat'])) {
     if (empty($name)) {
         $formerror[] = 'من فضلك ادخل اسم المشروع ';
     }
+    // credit gallary 
+    $file = '';
+    $file_tmp = '';
+    $location = "";
+    $uploadplace = "projects/images/";
+    if (isset($_FILES['more_images']['name'])) {
+        foreach ($_FILES['more_images']['name'] as $key => $val) {
+            $file = $_FILES['more_images']['name'][$key];
+            $file = str_replace(' ', '', $file);
+            $file_tmp = $_FILES['more_images']['tmp_name'][$key];
+            move_uploaded_file($file_tmp, $uploadplace . $file);
+            $location .= $file . ",";
+        }
+    }
     // main image
     if (!empty($_FILES['main_image']['name'])) {
         $main_image_name = $_FILES['main_image']['name'];
@@ -37,9 +51,17 @@ if (isset($_POST['edit_cat'])) {
     if (empty($formerror)) {
         $stmt = $connect->prepare("UPDATE projects SET cat_id=?,name=?,short_desc=?,description=?,project_adv=?,advisors=?,contact_number=? WHERE id = ? ");
         $stmt->execute(array($cat_id, $name, $short_desc, $description, $project_adv, $advisors, $contact_number, $pro_id));
+        if (!empty($_FILES['main_image']['name']) && $file_tmp != '') {
+            $stmt = $connect->prepare("UPDATE projects SET image=?,image_credits=? WHERE id = ? ");
+            $stmt->execute(array($main_image_uploaded, $location, $pro_id));
+        }
         if (!empty($_FILES['main_image']['name'])) {
             $stmt = $connect->prepare("UPDATE projects SET image=? WHERE id = ? ");
             $stmt->execute(array($main_image_uploaded, $pro_id));
+        }
+        if ($file_tmp != '') {
+            $stmt = $connect->prepare("UPDATE projects SET image_credits=? WHERE id = ? ");
+            $stmt->execute(array($location, $pro_id));
         }
         if ($stmt) {
             $_SESSION['success_message'] = "تم التعديل بنجاح ";

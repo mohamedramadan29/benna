@@ -14,6 +14,9 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $project_advatage = $project_data['project_adv'];
     $image = $project_data['image'];
     $contact_number = $project_data['contact_number'];
+    $image_credit = $project_data['image_credits'];
+    $images = explode(",", $image_credit);
+    $countfile = count($images) - 1;
     $count = $stmt->rowCount();
     if ($count > 0) {
 ?>
@@ -111,6 +114,28 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             </div>
         </div>
         <!-- end project adv  -->
+        <!-- START BRANDS  -->
+<div class="brands">
+    <div class="container">
+        <div class="data">
+            <div class="row" style="display: flex; align-items:center">
+                <div class="col-lg-1"></div>
+                <?php 
+                                for ($i = 0; $i < $countfile; ++$i) { ?>
+                                    <div class="col-lg-2">
+                                        <div class="">
+                                            <img style="max-width: 100%;" src="admin/pages/home_images/<?= $images[$i] ?>"
+                                                class="img-fluid mb-2" alt="المعرض" />
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END BRANDS -->
 <?php
 
         include $tem . 'footer.php';
