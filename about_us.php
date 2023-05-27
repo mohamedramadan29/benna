@@ -115,6 +115,43 @@ include 'init.php';
 </div>
 <!-- END ABOUT US -->
 <!-- END BENNA CAT -->
+<!-- START BRANDS  -->
+<div class="brands">
+    <div class="container">
+        <div class="data">
+            <div class="row" style="display: flex; align-items:center">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                    <div class="info">
+                        <img src="uploads/logo/1.webp" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="info">
+                        <img src="uploads/logo/2.webp" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="info">
+                        <img src="uploads/logo/3.webp" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="info">
+                        <img src="uploads/logo/4.webp" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="info">
+                        <img src="uploads/logo/5.webp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END BRANDS -->
+
 <?php
 
 include $tem . 'footer.php';
