@@ -30,11 +30,10 @@
               <?php
             }
             ?>
-
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="posts" href="posts"> المدونة dddd</a>
+          <a class="nav-link" id="blog" href="blog"> المدونة </a>
         </li>
         <?php
         if (isset($_SESSION['username'])) {

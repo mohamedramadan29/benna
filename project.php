@@ -15,8 +15,13 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $image = $project_data['image'];
     $contact_number = $project_data['contact_number'];
     $image_credit = $project_data['image_credits'];
-    $images = explode(",", $image_credit);
-    $countfile = count($images) - 1;
+    if(!empty($image_credit)){
+        $images = explode(",", $image_credit);
+        $countfile = count($images) - 1;
+    }else{
+        $countfile = '';
+    }
+   
     $count = $stmt->rowCount();
     if ($count > 0) {
 ?>

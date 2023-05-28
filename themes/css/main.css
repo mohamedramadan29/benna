@@ -957,7 +957,7 @@ input[type='email'] {
     background-image: url(../../uploads/short_desc.jpg);
     background-size: cover;
     background-position: center;
-    padding-top: 60px; 
+    padding-top: 60px;
 }
 
 .main_about .data {}
@@ -982,24 +982,96 @@ input[type='email'] {
     line-height: 1.9;
     font-size: 17px;
 }
-.main_about .data .info{ 
+
+.main_about .data .info {
     margin-bottom: 20px;
     padding: 10px;
     box-shadow: 0px 0px 4px #ccc;
-    border-radius: 5px; 
+    border-radius: 5px;
 }
-.main_about .data .info h3{
-font-size: 20px;
-color: var(--third-color);
-margin-bottom: 15px;
+
+.main_about .data .info h3 {
+    font-size: 20px;
+    color: var(--third-color);
+    margin-bottom: 15px;
 }
-.main_about .data .info p{
-    font-size: 17px; 
+
+.main_about .data .info p {
+    font-size: 17px;
     text-align: justify;
 }
 
 /* END MAIN ABOUT */
 /*********************** END CATEGORY PAGE *********************/
+/* START BLOG CATEGORY */
+.posts_header {
+    background-image: url(../../uploads/blog.jpg);
+    background-size: cover;
+    background-position: center;
+    background-size: cover;
+    min-height: 60vh;
+    position: relative;
+}
+
+.posts_header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(59, 130, 246, .7);
+}
+
+/* start post category */
+.post_category {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f1f1f1;
+}
+
+.post_category .data {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.post_category .data h2 {
+    margin-bottom: 50px;
+    color: var(--main-color);
+    font-size: 35px;
+    text-align: center;
+}
+
+.post_category .data .info {
+    box-shadow: 0px 0px 4px 2px #f1f1f1;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.post_category .data .info img {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px 5px 0 0;
+    min-height: 250px;
+    max-height: 250px;
+}
+
+.post_category .data .info .info_data {
+    padding: 10px;
+}
+
+.post_category .data .info .info_data span {
+    background-color: #2980b9;
+    color: #fff;
+}
+
+.post_category .data .info .info_data p {
+    margin-top: 20px;
+    line-height: 2;
+    color: #424141;
+}
+
+/* end post category */
+/* END BLOG CATEGORY */
 @media(max-width:991px) {
     .navbar-toggler {
         background-color: #f7f7f7;
@@ -1090,3 +1162,6 @@ margin-bottom: 15px;
         margin-bottom: 15px;
     }
 }
+
+
+/**/
