@@ -37,13 +37,19 @@ include 'init.php';
                 foreach ($allcat as $cat) {
                     ?>
                     <div class="col-lg-4">
-                        <div class="info">
-                            <img src="admin/post_categories/images/<?php echo $cat['main_image']; ?>" alt="">
-                            <div class="info_data">
-                                <span class="badge badge-danger"> <?php echo $cat['name']; ?> </span>
-                                <p> <?php echo $cat['description']; ?> </p>
+                        <a href='posts?cat_id=<?php echo $cat['id']; ?>'>
+                            <div class="info">
+                                <img src="admin/post_categories/images/<?php echo $cat['main_image']; ?>" alt="">
+                                <div class="info_data">
+                                    <span class="badge badge-danger">
+                                        <?php echo $cat['name']; ?>
+                                    </span>
+                                    <p>
+                                        <?php echo $cat['description']; ?>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <?php
                 }

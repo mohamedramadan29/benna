@@ -1046,7 +1046,9 @@ input[type='email'] {
     border-radius: 5px;
     margin-bottom: 20px;
 }
-
+.post_category .data a{
+    text-decoration: none;
+}
 .post_category .data .info img {
     width: 100%;
     margin-bottom: 20px;

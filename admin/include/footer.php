@@ -11,7 +11,8 @@
 <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -78,7 +79,7 @@
 <!-- Page specific script -->
 <!-- Page specific script -->
 <script>
-  $(function() {
+  $(function () {
     //Initialize Select2 Elements
     $('.select2').select2()
     /*
@@ -216,8 +217,8 @@
   // Select all the buttons with the "confirm-button" class
   var buttons = document.querySelectorAll('.confirm');
   // Loop through the buttons and add a click event listener
-  buttons.forEach(function(button) {
-    button.addEventListener('click', function(event) {
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function (event) {
       // Display the confirmation dialog
       if (!confirm("هل انت متاكد من عملية الحذف ؟ ")) {
         event.preventDefault(); // Prevent the button from doing anything
@@ -227,9 +228,9 @@
 </script>
 
 <script>
-  jQuery(function($) {
+  jQuery(function ($) {
     // اختيار المتغيرات 
-    $('#pro_attribute').change(function() {
+    $('#pro_attribute').change(function () {
       var pro_attribute = $(this).val();
       if (pro_attribute != '') {
         $.ajax({
@@ -238,7 +239,7 @@
           data: {
             pro_attribute: pro_attribute
           },
-          success: function(data) {
+          success: function (data) {
             $('#pro_variation').html(data);
           }
         });
@@ -249,12 +250,14 @@
   });
 </script>
 <script>
-  $(function() {
+  $(function () {
     // Summernote
-    $('#summernote').summernote({
+    $('.summernote').summernote({
       tabsize: 2,
       height: 200,
-      lang: 'ar-EG'
+      lang: 'ar-EG',
+      fontNames: ['cairo', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana'],
+      fontNamesIgnoreCheck: ['cairo']
     });
   })
 </script>
