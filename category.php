@@ -73,7 +73,10 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                                         <div class="image">
                                             <img src="admin/projects/images/<?php echo $project['image']; ?>" alt="">
                                         </div>
+                                        <div class="info_text">
                                         <a href="project?id=<?php echo $project['id']; ?>" class="link_text"> <?php echo $project['name']; ?> </a>
+                                        <p style="padding: 0 15px;line-height: 2;color: #000;"> <?php echo $project['short_desc']; ?> </p>
+                                   </div>
                                     </div>
                                 </a>
                             </div>

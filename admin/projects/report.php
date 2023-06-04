@@ -75,7 +75,7 @@
                                         <th> # </th>
                                         <th>الأسم </th>
                                         <th> الوصف المختصر </th>
-                                        <th> المستشارين </th>
+                                        <!-- <th> المستشارين </th> -->
                                         <th> الصورة </th>
                                         <th> </th>
                                     </tr>
@@ -99,6 +99,7 @@
                                             <td>
                                                 <?php echo $pro['short_desc']; ?>
                                             </td>
+                                            <!--
                                             <td>
                                                 <?php
                                                 $advisor = $pro['advisors'];
@@ -112,6 +113,7 @@
                                                     echo $adv_name . "</br>";
                                                 } ?>
                                             </td>
+                                            -->
                                             <td> <img style="width: 60px; height:60px"
                                                     src="projects/images/<?php echo $pro['image']; ?> " alt=""></td>
                                             <td>
@@ -180,6 +182,7 @@
                                                                     name="project_adv"
                                                                     class="form-control"><?php echo $pro['project_adv'] ?></textarea>
                                                             </div>
+                                                            <!--
                                                             <div class="form-group">
                                                                 <label for="Company-2" class="block"> المستشارين </label>
                                                                 <select name="advisors[]" id="" class="form-control select2"
@@ -205,11 +208,35 @@
                                                                     ?>
                                                                 </select>
                                                             </div>
+                                                                -->
                                                             <div class="form-group">
-                                                                <label for="customFile"> تعديل صورة القسم </label>
+                                                                <label for="customFile">تعديل الصورة الرئيسية <span
+                                                                        class='badge badge-info'> مقاس
+                                                                        تقريبا (300px * 230px) </span></label>
+                                                                <div class="custom-file">
+                                                                    <input  type="file" class="custom-file-input"
+                                                                        id="customFile" accept='image/*' name="main_image">
+                                                                    <label class="custom-file-label" for="customFile">اختر
+                                                                        الصورة</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="customFile">تعديل صورة الهيدر (1200px * 550px)
+                                                                </label>
                                                                 <div class="custom-file">
                                                                     <input type="file" class="custom-file-input"
-                                                                        id="customFile" accept='image/*' name="main_image">
+                                                                        id="customFile" accept='image/*'
+                                                                        name="header_image">
+                                                                    <label class="custom-file-label" for="customFile">اختر
+                                                                        الصورة</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="customFile">تعديل صورة المميزات (80px * 80px)
+                                                                </label>
+                                                                <div class="custom-file">
+                                                                    <input type="file" class="custom-file-input"
+                                                                        id="customFile" accept='image/*' name="adv_image">
                                                                     <label class="custom-file-label" for="customFile">اختر
                                                                         الصورة</label>
                                                                 </div>
@@ -292,6 +319,7 @@
                                         <textarea style="height: 120px;" id="Company-2" name="project_adv"
                                             class="form-control"></textarea>
                                     </div>
+                                    <!--
                                     <div class="form-group">
                                         <label for="Company-2" class="block"> المستشارين </label>
                                         <select name="advisors[]" id="" class="form-control select2" multiple>
@@ -308,8 +336,10 @@
                                             ?>
                                         </select>
                                     </div>
+                                        -->
                                     <div class="form-group">
-                                        <label for="customFile"> صورة المشروع </label>
+                                        <label for="customFile"> الصورة الرئيسية <span class='badge badge-info'> مقاس
+                                                تقريبا (300px * 230px) </span></label>
                                         <div class="custom-file">
                                             <input required type="file" class="custom-file-input" id="customFile"
                                                 accept='image/*' name="main_image">
@@ -317,7 +347,24 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="description"> صور الاعتمادات </label>
+                                        <label for="customFile"> صورة الهيدر (1200px * 550px) </label>
+                                        <div class="custom-file">
+                                            <input required type="file" class="custom-file-input" id="customFile"
+                                                accept='image/*' name="header_image">
+                                            <label class="custom-file-label" for="customFile">اختر الصورة</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="customFile"> صورة المميزات (80px * 80px) </label>
+                                        <div class="custom-file">
+                                            <input required type="file" class="custom-file-input" id="customFile"
+                                                accept='image/*' name="adv_image">
+                                            <label class="custom-file-label" for="customFile">اختر الصورة</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description"> صور الاعتمادات <span class='badge badge-danger'>
+                                                اختياري </span> </label>
                                         <input type="file" name='more_images[]' class='form-control' accept='image/*'
                                             multiple>
                                     </div>

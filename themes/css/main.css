@@ -241,7 +241,7 @@ END ABOUT US SECTION
     border-radius: 5px;
     padding: 0 0 15px 0;
     margin-bottom: 20px;
-    border: 1px solid #efefef;
+    box-shadow: 0px 0px 9px 0px #f1f1f1;
 }
 
 .categories .data .info .image {
@@ -262,12 +262,13 @@ END ABOUT US SECTION
 }
 
 .categories .data .info .link_text {
-    margin-top: 35px;
-    font-size: 25px;
+    margin-top: 30px;
+    font-size: 20px;
     color: var(--main-color);
     display: block;
     text-decoration: none;
     margin-bottom: 25px;
+    font-weight: 600;
 }
 
 /* END CATEGORIES  */
@@ -892,8 +893,8 @@ input[type='email'] {
 }
 
 .project_adv .data .info img {
-    width: 55px;
-    height: 55px;
+    width: 80px;
+    height: 80px;
     border-radius: 100%;
     padding: 10px;
     background-color: #fbfbfb;
@@ -1046,9 +1047,11 @@ input[type='email'] {
     border-radius: 5px;
     margin-bottom: 20px;
 }
-.post_category .data a{
+
+.post_category .data a {
     text-decoration: none;
 }
+
 .post_category .data .info img {
     width: 100%;
     margin-bottom: 20px;

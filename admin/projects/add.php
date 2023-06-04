@@ -5,8 +5,8 @@ if (isset($_POST['add_cat'])) {
     $description = $_POST['description'];
     $short_desc = $_POST['short_desc'];
     $project_adv = $_POST['project_adv'];
-    $advisors = $_POST['advisors'];
-    $advisors = implode(',', $advisors);
+    //$advisors = $_POST['advisors'];
+    //$advisors = implode(',', $advisors);
     $contact_number = $_POST['contact_number'];
     $formerror = [];
     if (empty($name)) {
@@ -40,7 +40,34 @@ if (isset($_POST['add_cat'])) {
     } else {
         $main_image_uploaded = '';
     }
-
+    // header image
+    if (!empty($_FILES['header_image']['name'])) {
+        $header_image_name = $_FILES['header_image']['name'];
+        $header_image_temp = $_FILES['header_image']['tmp_name'];
+        $header_image_type = $_FILES['header_image']['type'];
+        $header_image_size = $_FILES['header_image']['size'];
+        $header_image_uploaded = time() . '_' . $header_image_name;
+        move_uploaded_file(
+            $header_image_temp,
+            'projects/images/' . $header_image_uploaded
+        );
+    } else {
+        $header_image_uploaded = '';
+    }
+    // Advisor image
+    if (!empty($_FILES['adv_image']['name'])) {
+        $adv_image_name = $_FILES['adv_image']['name'];
+        $adv_image_temp = $_FILES['adv_image']['tmp_name'];
+        $adv_image_type = $_FILES['adv_image']['type'];
+        $adv_image_size = $_FILES['adv_image']['size'];
+        $adv_image_uploaded = time() . '_' . $adv_image_name;
+        move_uploaded_file(
+            $header_image_temp,
+            'projects/images/' . $adv_image_uploaded
+        );
+    } else {
+        $adv_image_uploaded = '';
+    }
     $stmt = $connect->prepare("SELECT * FROM projects WHERE name = ?");
     $stmt->execute(array($name));
     $count = $stmt->rowCount();
@@ -48,8 +75,8 @@ if (isset($_POST['add_cat'])) {
         $formerror[] = ' اسم المشروع  موجود من قبل من فضلك ادخل اسم اخر  ';
     }
     if (empty($formerror)) {
-        $stmt = $connect->prepare("INSERT INTO projects (cat_id,name,short_desc,description,project_adv,advisors,image,contact_number,image_credits)
-        VALUES (:zcat_id,:zname,:zshort_desc,:zdesc,:zadvantage,:zadvisor,:zimage,:zcontact_number,:zimage_credit)");
+        $stmt = $connect->prepare("INSERT INTO projects (cat_id,name,short_desc,description,project_adv,/*advisors,*/image,header_image,advan_image,contact_number,image_credits)
+        VALUES (:zcat_id,:zname,:zshort_desc,:zdesc,:zadvantage,/*:zadvisor,*/:zimage,:zheader_image,:zadvan_image,:zcontact_number,:zimage_credit)");
         $stmt->execute(
             array(
                 "zcat_id" => $cat_id,
@@ -57,8 +84,10 @@ if (isset($_POST['add_cat'])) {
                 "zshort_desc" => $short_desc,
                 "zdesc" => $description,
                 "zadvantage" => $project_adv,
-                "zadvisor" => $advisors,
+                // "zadvisor" => $advisors,
                 "zimage" => $main_image_uploaded,
+                "zheader_image" => $header_image_uploaded,
+                "zadvan_image" => $adv_image_uploaded,
                 "zcontact_number" => $contact_number,
                 "zimage_credit" => $location
             )

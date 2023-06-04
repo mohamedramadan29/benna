@@ -33,6 +33,9 @@
           </ul>
         </li>
         <li class="nav-item">
+          <a class="nav-link" id="advisors" href="advisors"> المستشارين  </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" id="blog" href="blog"> المدونة </a>
         </li>
         <?php

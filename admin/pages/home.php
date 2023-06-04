@@ -39,6 +39,7 @@ if (isset($_POST['add_pro'])) {
   } else {
     $about_image_uploaded = '';
   }
+
   // credit gallary 
   $file = '';
   $file_tmp = '';
@@ -51,6 +52,20 @@ if (isset($_POST['add_pro'])) {
       $file_tmp = $_FILES['more_images']['tmp_name'][$key];
       move_uploaded_file($file_tmp, $uploadplace . $file);
       $location .= $file . ",";
+    }
+  }
+  // parteners gallay 
+  $file2 = '';
+  $file_tmp2 = '';
+  $location2 = "";
+  $uploadplace2 = "pages/home_images/parteners/";
+  if (isset($_FILES['parteners_images']['name'])) {
+    foreach ($_FILES['parteners_images']['name'] as $key => $val) {
+      $file2 = $_FILES['parteners_images']['name'][$key];
+      $file2 = str_replace(' ', '', $file2);
+      $file_tmp2 = $_FILES['parteners_images']['tmp_name'][$key];
+      move_uploaded_file($file_tmp2, $uploadplace2 . $file2);
+      $location2 .= $file2 . ",";
     }
   }
 
@@ -97,6 +112,14 @@ if (isset($_POST['add_pro'])) {
       $stmt->execute(
         array(
           $location
+        )
+      );
+    }
+    if ($file_tmp2 != '') {
+      $stmt = $connect->prepare("UPDATE home_page SET parteners=?");
+      $stmt->execute(
+        array(
+          $location2
         )
       );
     }
@@ -230,9 +253,37 @@ $category_head = $page_data['category_head'];
                 <label for="description"> صورة من نحن </label>
                 <input type="file" name='about_image' class='form-control' accept='image/*'>
               </div>
+              <!-- start parteners  -->
               <div class='form-group'>
                 <img style='width:150px; height:150px' src="pages/home_images/<?php echo $about_image ?>" alt="">
               </div>
+              <span class='badge badge-info'>شركاءنا </span>
+              <div class="form-group">
+                <label for="description"> صور شركاءنا </label>
+                <input type="file" name='parteners_images[]' class='form-control' accept='image/*' multiple>
+              </div>
+              <div class="row">
+                <?php
+                $parteners_images = $page_data['parteners'];
+                $partimages = explode(",", $parteners_images);
+                $countfile_part = count($partimages) - 1;
+                for ($i = 0; $i < $countfile_part; ++$i) { ?>
+
+                  <div class="col-3">
+                    <div class="">
+                      <a target='_blank' href="pages/home_images/parteners<?= $partimages[$i] ?>" data-toggle="lightbox"
+                        data-title="sample 2 - black">
+                        <img style="max-width: 100%;" src="pages/home_images/parteners<?= $partimages[$i] ?>"
+                          class="img-fluid mb-2" alt="المعرض" />
+                      </a>
+                    </div>
+                  </div>
+
+                  <?php
+                }
+                ?>
+              </div>
+              <!-- end parteners -->
               <span class='badge badge-info'> القسم الاخير ( الاعتمادات ) </span>
               <div class="form-group">
                 <label for="description"> صور الاعتمادات </label>

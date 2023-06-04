@@ -13,9 +13,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $advisors = $project_data['advisors'];
     $project_advatage = $project_data['project_adv'];
     $image = $project_data['image'];
+    $header_image = $project_data['header_image'];
+    $adv_image = $project_data['advan_image'];
     $contact_number = $project_data['contact_number'];
     $image_credit = $project_data['image_credits'];
-    if(!empty($image_credit)){
+    if(!empty($image_credit) && $image_credit != ','){
         $images = explode(",", $image_credit);
         $countfile = count($images) - 1;
     }else{
@@ -26,7 +28,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     if ($count > 0) {
 ?>
         <!-- START HERO SECTION  -->
-        <div class="category" style="background-image: url(admin/projects/images/<?php echo $image ?>); background-size: cover; background-position: center; ">
+        <div class="category" style="background-image: url(admin/projects/images/<?php echo $header_image ?>); background-size: cover; background-position: center; ">
             <div class="overlay">
                 <div class="container">
                     <div class="data">
@@ -78,7 +80,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                         ?>
                             <div class="col-lg-4">
                                 <div class="info">
-                                    <img src="admin/projects/images/<?php echo $image ?>" alt="">
+                                    <img src="admin/projects/images/<?php echo $adv_image ?>" alt="">
                                     <p> <?php echo $adv; ?> </p>
                                 </div>
                             </div>
@@ -90,7 +92,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             </div>
         </div>
         <!-- end project adv  -->
-        <!-- start project Adv  -->
+        <!-- start project Adv  
         <div class="project_advisors">
             <div class="container">
                 <div class="data">
@@ -118,7 +120,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 </div>
             </div>
         </div>
-        <!-- end project adv  -->
+     end project adv  -->
         <!-- START BRANDS  -->
 <div class="brands">
     <div class="container">
