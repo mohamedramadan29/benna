@@ -2,6 +2,7 @@
 if (isset($_POST['add_cat'])) {
     $name = $_POST['name'];
     $description = $_POST['description'];
+    $short_description = $_POST['short_description'];
     $formerror = [];
     if (empty($name)) {
         $formerror[] = 'من فضلك ادخل اسم القسم';
@@ -28,13 +29,16 @@ if (isset($_POST['add_cat'])) {
         $formerror[] = ' اسم القسم موجود من قبل من فضلك ادخل اسم اخر  ';
     }
     if (empty($formerror)) {
-        $stmt = $connect->prepare("INSERT INTO categories (name,main_image,description)
-        VALUES (:zname,:zimage,:zdesc)");
-        $stmt->execute(array(
-            "zname" => $name,
-            "zimage" => $main_image_uploaded,
-            "zdesc" => $description,
-        ));
+        $stmt = $connect->prepare("INSERT INTO categories (name,main_image,description,short_description)
+        VALUES (:zname,:zimage,:zdesc,:zshort_desc)");
+        $stmt->execute(
+            array(
+                "zname" => $name,
+                "zimage" => $main_image_uploaded,
+                "zdesc" => $description,
+                "zshort_desc" => $short_description,
+            )
+        );
         if ($stmt) {
             $_SESSION['success_message'] = " تمت الأضافة بنجاح  ";
             header('Location:main?dir=benna_categories&page=report');

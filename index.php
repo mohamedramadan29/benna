@@ -147,6 +147,7 @@ $countfile_partener = count($parteners_images) - 1;
                     $cat_name = $cat_data['name'];
                     $cat_image = $cat_data['main_image'];
                     $cat_desc = $cat_data['description'];
+                    $cat_short_desc = $cat_data['short_description'];
                     $count = $stmt->rowCount();
                     
                     ?>
@@ -161,7 +162,7 @@ $countfile_partener = count($parteners_images) - 1;
                                 <h2> <?php echo $cat_name; ?> :
                             </h2>
                             <p>
-                                <?php echo $cat_desc; ?>
+                                <?php echo $cat_short_desc; ?>
                             </p>
                         <a href="category?id=<?php echo $cat_data['id'] ?>" class="btn button"> تفاصيل القسم  </a>
                         </div>

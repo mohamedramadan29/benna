@@ -3,6 +3,7 @@ if (isset($_POST['edit_cat'])) {
     $cat_id = $_POST['cat_id'];
     $name = $_POST['name'];
     $description = $_POST['description'];
+    $short_description = $_POST['short_description'];
     $formerror = [];
     if (empty($name)) {
         $formerror[] = 'من فضلك ادخل اسم القسم';
@@ -29,8 +30,8 @@ if (isset($_POST['edit_cat'])) {
         $formerror[] = ' اسم القسم موجود من قبل من فضلك ادخل اسم اخر  ';
     }
     if (empty($formerror)) {
-        $stmt = $connect->prepare("UPDATE categories SET name=?,description=? WHERE id = ? ");
-        $stmt->execute(array($name, $description, $cat_id));
+        $stmt = $connect->prepare("UPDATE categories SET name=?,description=?,short_description=? WHERE id = ? ");
+        $stmt->execute(array($name, $description,$short_description, $cat_id));
         if (!empty($_FILES['main_image']['name'])) {
             $stmt = $connect->prepare("UPDATE categories SET main_image=? WHERE id = ? ");
             $stmt->execute(array($main_image_uploaded, $cat_id));
