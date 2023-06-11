@@ -47,16 +47,22 @@
                             <!--
                             <li> <a target="_blank" href="https://www.youtube.com/@BenaaEdu"> <i class="fa fa-youtube"></i> </a> </li>
 -->
-                            <li> <a target="_blank" href="https://twitter.com/BenaaEDU"> <i class="fa fa-twitter"></i> </a> </li>
+                            <li> <a target="_blank" href="https://twitter.com/BenaaEDU"> <i class="fa fa-twitter"></i>
+                                </a> </li>
                             <!--
                             <li> <a target="_blank" href="https://www.instagram.com/benaaedu/"> <i class="fa fa-instagram"></i> </a> </li>
 -->
-                            <li> <a target="_blank" href="https://www.linkedin.com/school/benaaedu/"> <i class="fa fa-linkedin"></i> </a> </li>
-                            <li> <a target="_blank" href="https://wa.me/966554434266"> <i class="fa fa-whatsapp"></i> </a> </li>
+                            <li> <a target="_blank" href="https://www.linkedin.com/school/benaaedu/"> <i
+                                        class="fa fa-linkedin"></i> </a> </li>
+                            <li> <a target="_blank" href="https://wa.me/966554434266"> <i class="fa fa-whatsapp"></i>
+                                </a> </li>
                         </ul>
                     </div>
                 </div>
-                <p class="copy_right"> جميع الحقوق محفوظة 2023 &copy; <strong> <span style="color: #fff;"> مجموعة بناء </span></strong> بواسطة <span> <strong> <a style="color: var(--third-color); text-decoration: none;" href="https://wa.me/+201011642731"> Mr </a> </strong> </span></p>
+                <p class="copy_right"> جميع الحقوق محفوظة 2023 &copy; <strong> <span style="color: #fff;"> مجموعة بناء
+                        </span></strong> بواسطة <span> <strong> <a
+                                style="color: var(--third-color); text-decoration: none;"
+                                href="https://wa.me/+201011642731"> Mr </a> </strong> </span></p>
             </div>
         </div>
     </div>
@@ -65,7 +71,7 @@
 
 
 <script src='themes/js/jquery.min.js'></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script src='themes/js/bootstrap.min.js'></script>
 <script src="https://kit.fontawesome.com/588e070751.js" crossorigin="anonymous"></script>
 <script src='themes/js/select2.min.js'></script>
 <script src='themes/js/main.js'></script>

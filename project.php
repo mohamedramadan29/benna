@@ -4,9 +4,11 @@ session_start();
 include 'init.php';
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $project_id = $_GET['id'];
+ 
     $stmt = $connect->prepare("SELECT * FROM projects WHERE id = ?");
     $stmt->execute(array($project_id));
     $project_data = $stmt->fetch();
+    $cat_id = $project_data['cat_id'];
     $name = $project_data['name'];
     $short_desc = $project_data['short_desc'];
     $description = $project_data['description'];
@@ -23,13 +25,18 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     }else{
         $countfile = '';
     }
-   
     $count = $stmt->rowCount();
+    // get category data 
+
+    $stmt = $connect->prepare("SELECT * FROM categories WHERE id = ?");
+    $stmt->execute(array($cat_id));
+    $category_data = $stmt->fetch();
+    $cat_name = $category_data['name'];
     if ($count > 0) {
 ?>
         <!-- START HERO SECTION  -->
-        <div class="category" style="background-image: url(admin/projects/images/<?php echo $header_image ?>); background-size: cover; background-position: center; ">
-            <div class="overlay">
+        <div class="category" style="background-image: url(admin/projects/images/<?php echo $header_image ?>); background-size: cover; background-position: center; min-height:80vh">
+            <div class="overlay" style="background-color:transparent">
                 <div class="container">
                     <div class="data">
                         <div class="row">
@@ -37,7 +44,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                                 <div class="info">
                                     <h2>
                                         <?php echo $name; ?> </h2>
-                                    <p> <a href="index"> الرئيسية </a> / بناء الجهات / <?php echo $name; ?></p>
+                                    <p> <a href="index"> الرئيسية </a> / <a href="category?id=<?php echo $cat_id ?>"> <?php echo $cat_name ?> </a>/ <?php echo $name; ?></p>
                                 </div>
                             </div>
                         </div>
