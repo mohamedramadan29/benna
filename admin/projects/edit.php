@@ -30,6 +30,7 @@ if (isset($_POST['edit_cat'])) {
     // main image
     if (!empty($_FILES['main_image']['name'])) {
         $main_image_name = $_FILES['main_image']['name'];
+        $main_image_name = str_replace(' ', '', $main_image_name);
         $main_image_temp = $_FILES['main_image']['tmp_name'];
         $main_image_type = $_FILES['main_image']['type'];
         $main_image_size = $_FILES['main_image']['size'];
@@ -44,6 +45,7 @@ if (isset($_POST['edit_cat'])) {
     //header image
     if (!empty($_FILES['header_image']['name'])) {
         $header_image_name = $_FILES['header_image']['name'];
+        $header_image_name = str_replace(' ', '', $header_image_name);
         $header_image_temp = $_FILES['header_image']['tmp_name'];
         $header_image_type = $_FILES['header_image']['type'];
         $header_image_size = $_FILES['header_image']['size'];
@@ -58,6 +60,7 @@ if (isset($_POST['edit_cat'])) {
     // adv image
     if (!empty($_FILES['adv_image']['name'])) {
         $adv_image_name = $_FILES['adv_image']['name'];
+        $adv_image_name = str_replace(' ', '', $adv_image_name);
         $adv_image_temp = $_FILES['adv_image']['tmp_name'];
         $adv_image_type = $_FILES['adv_image']['type'];
         $adv_image_size = $_FILES['adv_image']['size'];
@@ -78,10 +81,41 @@ if (isset($_POST['edit_cat'])) {
     if (empty($formerror)) {
         $stmt = $connect->prepare("UPDATE projects SET cat_id=?,name=?,short_desc=?,description=?,project_adv=?,/*advisors=?,*/contact_number=? WHERE id = ? ");
         $stmt->execute(array($cat_id, $name, $short_desc, $description, $project_adv, /* $advisors,*/$contact_number, $pro_id));
-        if (!empty($_FILES['main_image']['name']) && $file_tmp != '') {
-            $stmt = $connect->prepare("UPDATE projects SET image=?,image_credits=? WHERE id = ? ");
-            $stmt->execute(array($main_image_uploaded, $location, $pro_id));
-        }
+        /*
+         if (
+             !empty($_FILES['main_image']['name']) &&
+             !empty($_FILES['header_image']['name']) && !empty($_FILES['adv_image']['name']) && $file_tmp != ''
+         ) {
+             $stmt = $connect->prepare("UPDATE projects SET image=?,header_image=?,advan_image=?,image_credits=? WHERE id = ? ");
+             $stmt->execute(array($main_image_uploaded, $header_image_uploaded, $adv_image_uploaded, $location, $pro_id));
+         }
+         if (
+             !empty($_FILES['main_image']['name']) &&
+             !empty($_FILES['header_image']['name']) && !empty($_FILES['adv_image']['name'])
+         ) {
+             $stmt = $connect->prepare("UPDATE projects SET image=?,header_image=?,advan_image=? WHERE id = ? ");
+             $stmt->execute(array($main_image_uploaded, $header_image_uploaded, $adv_image_uploaded, $pro_id));
+         }
+         if (
+             !empty($_FILES['main_image']['name']) &&
+             !empty($_FILES['header_image']['name']) && $file_tmp != ''
+         ) {
+             $stmt = $connect->prepare("UPDATE projects SET image=?,header_image=?,image_credits=? WHERE id = ? ");
+             $stmt->execute(array($main_image_uploaded, $header_image_uploaded, $location, $pro_id));
+         }
+         if (
+             !empty($_FILES['main_image']['name']) && !empty($_FILES['adv_image']['name']) && $file_tmp != ''
+         ) {
+             $stmt = $connect->prepare("UPDATE projects SET image=?,advan_image=?,image_credits=? WHERE id = ? ");
+             $stmt->execute(array($main_image_uploaded, $adv_image_uploaded, $location, $pro_id));
+         }
+         if (
+             !empty($_FILES['header_image']['name']) && !empty($_FILES['adv_image']['name']) && $file_tmp != ''
+         ) {
+             $stmt = $connect->prepare("UPDATE projects SET header_image=?,advan_image=?,image_credits=? WHERE id = ? ");
+             $stmt->execute(array($header_image_uploaded, $adv_image_uploaded, $location, $pro_id));
+         }
+         */
         if (!empty($_FILES['main_image']['name'])) {
             $stmt = $connect->prepare("UPDATE projects SET image=? WHERE id = ? ");
             $stmt->execute(array($main_image_uploaded, $pro_id));
