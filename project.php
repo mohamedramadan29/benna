@@ -139,7 +139,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                                 for ($i = 0; $i < $countfile; ++$i) { ?>
                                     <div class="col-lg-2">
                                         <div class="">
-                                            <img style="max-width: 100%;" src="admin/pages/home_images/<?= $images[$i] ?>"
+                                            <img style="max-width: 100%;" src="admin/projects/images/<?= $images[$i] ?>"
                                                 class="img-fluid mb-2" alt="المعرض" />
                                         </div>
                                     </div>
