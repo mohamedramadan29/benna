@@ -29,6 +29,7 @@ if (isset($_POST['add_cat'])) {
     // main image
     if (!empty($_FILES['main_image']['name'])) {
         $main_image_name = $_FILES['main_image']['name'];
+        $main_image_name = str_replace(' ', '', $main_image_name);
         $main_image_temp = $_FILES['main_image']['tmp_name'];
         $main_image_type = $_FILES['main_image']['type'];
         $main_image_size = $_FILES['main_image']['size'];
@@ -43,6 +44,7 @@ if (isset($_POST['add_cat'])) {
     // header image
     if (!empty($_FILES['header_image']['name'])) {
         $header_image_name = $_FILES['header_image']['name'];
+        $header_image_name = str_replace(' ', '', $header_image_name);
         $header_image_temp = $_FILES['header_image']['tmp_name'];
         $header_image_type = $_FILES['header_image']['type'];
         $header_image_size = $_FILES['header_image']['size'];
@@ -57,6 +59,7 @@ if (isset($_POST['add_cat'])) {
     // Advisor image
     if (!empty($_FILES['adv_image']['name'])) {
         $adv_image_name = $_FILES['adv_image']['name'];
+        $adv_image_name = str_replace(' ', '', $adv_image_name);
         $adv_image_temp = $_FILES['adv_image']['tmp_name'];
         $adv_image_type = $_FILES['adv_image']['type'];
         $adv_image_size = $_FILES['adv_image']['size'];

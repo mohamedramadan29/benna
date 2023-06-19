@@ -36,7 +36,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 ?>
         <!-- START HERO SECTION  -->
         <div class="category" style="background-image: url(admin/projects/images/<?php echo $header_image ?>); background-size: cover; background-position: center; min-height:80vh">
-            <div class="overlay" style="background-color:transparent">
+           
+        <div class="overlay" style="background-color:transparent">
                 <div class="container">
                     <div class="data">
                         <div class="row">
