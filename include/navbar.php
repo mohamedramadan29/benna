@@ -33,66 +33,14 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="advisors" href="advisors"> المستشارين  </a>
+          <a class="nav-link" id="advisors" href="advisors"> المستشارين </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="blog" href="blog"> المدونة </a>
         </li>
-        <?php
-        if (isset($_SESSION['username'])) {
-          /*
-          $stmt = $connect->prepare("SELECT COUNT(id) as count_id, msg_from, msg_to, travel_id FROM chat WHERE msg_to=? GROUP BY msg_from, travel_id ORDER BY count_id DESC LIMIT 15");
-          $stmt->execute(array($_SESSION['username']));*/
-          include "message_noti_icons/message.php";
-          include "message_noti_icons/notification.php";
-          ?>
-          <!--
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <?php
-              $stmt = $connect->prepare("SELECT * FROM users WHERE name=?");
-              $stmt->execute(array($_SESSION['username']));
-              $user_data = $stmt->fetch();
-              if ($user_data['profile_image'] != null && $user_data['profile_image'] != '') {
-                ?>
-                <img src="website_uploads/<?php echo $user_data['profile_image'] ?>" alt="">
-              <?php
-              } else {
-                ?>
-                <img src="uploads/avatar.gif" alt="">
-              <?php
-              }
-              ?>
-
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="profile"> <i class="fa fa-user"></i> حسابي </a></li>
-              <li><a class="dropdown-item" href="all_travel"> <i class="fa fa-plane"></i> رحلاتي </a></li>
-              <li><a class="dropdown-item" href="all_product"> <i class="fa fa-book"></i> شحناتي </a></li>
-              <li><a class="dropdown-item" href="add_travel"> <i class="fa fa-plus"></i> اضافة رحلة </a></li>
-              <li><a class="dropdown-item" href="add_product"> <i class="fa fa-plus"></i> اضافة شحنة </a></li>
-              <li><a class="dropdown-item" href="balance"> <i class="fa fa-dollar"></i> الرصيد </a></li>
-              <li><a class="dropdown-item" href="logout"> <i class="fa fa-sign-out"></i> تسجيل خروج </a></li>
-              <li><a data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" style="color:red" class="dropdown-item"> <i class="fa fa-trash"></i> الغاء الحساب </a></li>
-            </ul>
-          </li>
-            -->
-          <?php
-
-        } else {
-          ?>
-          <!--
-          <li class="nav-item login">
-            <a id="login" class="nav-link" href="login"> دخول </a>
-          </li>
-          <li class="nav-item new_account">
-            <a id="register" class="nav-link" href="register"> حساب جديد </a>
-          </li>
-        -->
-          <?php
-        }
-
-        ?>
+        <li class="nav-item">
+          <a class="nav-link" id="blog" href="shop"> المتجر </a>
+        </li>
       </ul>
     </div>
   </div>
