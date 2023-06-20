@@ -5,6 +5,7 @@ if (isset($_POST['add_cat'])) {
     $description = $_POST['description'];
     $short_desc = $_POST['short_desc'];
     $project_adv = $_POST['project_adv'];
+    $project_adv_head = $_POST['project_adv_head'];
     //$advisors = $_POST['advisors'];
     //$advisors = implode(',', $advisors);
     $contact_number = $_POST['contact_number'];
@@ -78,8 +79,8 @@ if (isset($_POST['add_cat'])) {
         $formerror[] = ' اسم المشروع  موجود من قبل من فضلك ادخل اسم اخر  ';
     }
     if (empty($formerror)) {
-        $stmt = $connect->prepare("INSERT INTO projects (cat_id,name,short_desc,description,project_adv,/*advisors,*/image,header_image,advan_image,contact_number,image_credits)
-        VALUES (:zcat_id,:zname,:zshort_desc,:zdesc,:zadvantage,/*:zadvisor,*/:zimage,:zheader_image,:zadvan_image,:zcontact_number,:zimage_credit)");
+        $stmt = $connect->prepare("INSERT INTO projects (cat_id,name,short_desc,description,project_adv,project_adv_head,/*advisors,*/image,header_image,advan_image,contact_number,image_credits)
+        VALUES (:zcat_id,:zname,:zshort_desc,:zdesc,:zadvantage,:zadv_head,/*:zadvisor,*/:zimage,:zheader_image,:zadvan_image,:zcontact_number,:zimage_credit)");
         $stmt->execute(
             array(
                 "zcat_id" => $cat_id,
@@ -87,6 +88,7 @@ if (isset($_POST['add_cat'])) {
                 "zshort_desc" => $short_desc,
                 "zdesc" => $description,
                 "zadvantage" => $project_adv,
+                "zadv_head" => $project_adv_head,
                 // "zadvisor" => $advisors,
                 "zimage" => $main_image_uploaded,
                 "zheader_image" => $header_image_uploaded,

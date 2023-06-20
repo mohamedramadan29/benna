@@ -4,7 +4,7 @@ session_start();
 include 'init.php';
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $project_id = $_GET['id'];
- 
+
     $stmt = $connect->prepare("SELECT * FROM projects WHERE id = ?");
     $stmt->execute(array($project_id));
     $project_data = $stmt->fetch();
@@ -14,15 +14,16 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $description = $project_data['description'];
     $advisors = $project_data['advisors'];
     $project_advatage = $project_data['project_adv'];
+    $project_adv_head = $project_data['project_adv_head'];
     $image = $project_data['image'];
     $header_image = $project_data['header_image'];
     $adv_image = $project_data['advan_image'];
     $contact_number = $project_data['contact_number'];
     $image_credit = $project_data['image_credits'];
-    if(!empty($image_credit) && $image_credit != ','){
+    if (!empty($image_credit) && $image_credit != ',') {
         $images = explode(",", $image_credit);
         $countfile = count($images) - 1;
-    }else{
+    } else {
         $countfile = '';
     }
     $count = $stmt->rowCount();
@@ -35,9 +36,9 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     if ($count > 0) {
 ?>
         <!-- START HERO SECTION  -->
-        <div class="category" style="background-image: url(admin/projects/images/<?php echo $header_image ?>); background-size: cover; background-position: center; min-height:80vh">
-           
-        <div class="overlay" style="background-color:transparent">
+        <div class="category" style="background-image: url(admin/projects/images/<?php echo $header_image ?>); background-size: cover; background-position: center;">
+
+            <div class="overlay" style="background-color:transparent">
                 <div class="container">
                     <div class="data">
                         <div class="row">
@@ -80,7 +81,13 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         <div class="project_adv">
             <div class="container">
                 <div class="data">
-                    <h3> مميزات البرنامج : </h3>
+                    <h3> <?php
+                            if ($project_adv_head == null) {
+                                echo "مميزات المشروع : ";
+                            } else {
+                                echo $project_adv_head;
+                            }
+                            ?>  </h3>
                     <div class="row">
                         <?php
                         $project_advatage = explode(',', $project_advatage);
@@ -130,27 +137,26 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         </div>
      end project adv  -->
         <!-- START BRANDS  -->
-<div class="brands">
-    <div class="container">
-        <div class="data">
-            <div class="row" style="display: flex; align-items:center">
-                <div class="col-lg-1"></div>
-                <?php 
-                                for ($i = 0; $i < $countfile; ++$i) { ?>
-                                    <div class="col-lg-2">
-                                        <div class="">
-                                            <img style="max-width: 100%;" src="admin/projects/images/<?= $images[$i] ?>"
-                                                class="img-fluid mb-2" alt="المعرض" />
-                                        </div>
-                                    </div>
-                                    <?php
-                                }
-                                ?>
+        <div class="brands">
+            <div class="container">
+                <div class="data">
+                    <div class="row" style="display: flex; align-items:center">
+                        <div class="col-lg-1"></div>
+                        <?php
+                        for ($i = 0; $i < $countfile; ++$i) { ?>
+                            <div class="col-lg-2">
+                                <div class="">
+                                    <img style="max-width: 100%;" src="admin/projects/images/<?= $images[$i] ?>" class="img-fluid mb-2" alt="المعرض" />
+                                </div>
                             </div>
-                        </div>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
-                <!-- END BRANDS -->
+            </div>
+        </div>
+        <!-- END BRANDS -->
 <?php
 
         include $tem . 'footer.php';

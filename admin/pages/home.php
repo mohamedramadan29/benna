@@ -12,6 +12,7 @@ if (isset($_POST['add_pro'])) {
   if (!empty($_FILES['banner_image']['name'])) {
 
     $banner_image_name = $_FILES['banner_image']['name'];
+    $banner_image_name = str_replace(' ', '', $banner_image_name);
     $banner_image_temp = $_FILES['banner_image']['tmp_name'];
     $banner_image_type = $_FILES['banner_image']['type'];
     $banner_image_size = $_FILES['banner_image']['size'];
@@ -23,11 +24,10 @@ if (isset($_POST['add_pro'])) {
   } else {
     $banner_image_uploaded = '';
   }
-
   // about image
-
   if (!empty($_FILES['about_image']['name'])) {
     $about_image_name = $_FILES['about_image']['name'];
+    $about_image_name = str_replace(' ', '', $about_image_name);
     $about_image_temp = $_FILES['about_image']['tmp_name'];
     $about_image_type = $_FILES['about_image']['type'];
     $about_image_size = $_FILES['about_image']['size'];

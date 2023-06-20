@@ -148,8 +148,8 @@ START ABOUT US SECTION
 */
 
 .about_us {
-    padding-top: 150px;
-    padding-bottom: 60px;
+    padding-top: 80px;
+    padding-bottom: 40px;
 }
 
 
@@ -225,7 +225,7 @@ END ABOUT US SECTION
 /* START CATEGORIES  */
 .categories {
     background-color: #fbfbfb;
-    padding-top: 90px;
+    padding-top: 45px;
     background-image: url(../../uploads/short_desc.jpg);
     background-size: cover;
     background-position: center;
@@ -864,8 +864,8 @@ input[type='email'] {
 /* START PROJECT ADVANTAGE */
 .project_adv {
     padding: 20px;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     background-image: url(../../uploads/short_desc.jpg);
     background-position: center;
     background-size: cover;
@@ -986,9 +986,7 @@ input[type='email'] {
 
 .main_about .data .info {
     margin-bottom: 20px;
-    padding: 10px;
-    box-shadow: 0px 0px 4px #ccc;
-    border-radius: 5px;
+    padding: 10px; 
 }
 
 .main_about .data .info h3 {

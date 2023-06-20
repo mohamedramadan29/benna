@@ -38,7 +38,7 @@ $countfile = count($images) - 1;
 <!-- START HERO SECTION  -->
 <div class="category"
     style="background-image: url(admin/pages/about_images/<?php echo $banner_image ?>); background-size: cover; background-position: center; ">
-    <div class="overlay">
+    <div class="overlay" style="background-color: transparent;">
         <div class="container">
             <div class="data">
                 <div class="row">

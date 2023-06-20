@@ -178,6 +178,7 @@
                                                                 <label for="Company-2" class="block"> مميزات المشروع <span
                                                                         class="badge badge-info"> افصل بين كل ميزة ب ","
                                                                     </span> </label>
+                                                                    <input type="text" name="project_adv_head" class="form-control" value="<?php echo $pro['project_adv_head'] ?>">
                                                                 <textarea style="height: 120px;" id="Company-2"
                                                                     name="project_adv"
                                                                     class="form-control"><?php echo $pro['project_adv'] ?></textarea>
@@ -316,6 +317,7 @@
                                     <div class="form-group">
                                         <label for="Company-2" class="block"> مميزات المشروع <span
                                                 class="badge badge-info"> افصل بين كل ميزة ب "," </span> </label>
+                                                <input type="text" name="project_adv_head" class="form-control">
                                         <textarea style="height: 120px;" id="Company-2" name="project_adv"
                                             class="form-control"></textarea>
                                     </div>

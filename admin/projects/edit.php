@@ -6,6 +6,7 @@ if (isset($_POST['edit_cat'])) {
     $description = $_POST['description'];
     $short_desc = $_POST['short_desc'];
     $project_adv = $_POST['project_adv'];
+    $project_adv_head = $_POST['project_adv_head'];
     //  $advisors = $_POST['advisors'];
     // $advisors = implode(',', $advisors);
     $contact_number = $_POST['contact_number'];
@@ -79,8 +80,8 @@ if (isset($_POST['edit_cat'])) {
         $formerror[] = ' اسم المشروع  موجود من قبل من فضلك ادخل اسم اخر  ';
     }
     if (empty($formerror)) {
-        $stmt = $connect->prepare("UPDATE projects SET cat_id=?,name=?,short_desc=?,description=?,project_adv=?,/*advisors=?,*/contact_number=? WHERE id = ? ");
-        $stmt->execute(array($cat_id, $name, $short_desc, $description, $project_adv, /* $advisors,*/$contact_number, $pro_id));
+        $stmt = $connect->prepare("UPDATE projects SET cat_id=?,name=?,short_desc=?,description=?,project_adv=?,project_adv_head=?,/*advisors=?,*/contact_number=? WHERE id = ? ");
+        $stmt->execute(array($cat_id, $name, $short_desc, $description, $project_adv, $project_adv_head, /* $advisors,*/ $contact_number, $pro_id));
         /*
          if (
              !empty($_FILES['main_image']['name']) &&

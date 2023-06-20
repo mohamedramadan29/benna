@@ -29,6 +29,7 @@ if (isset($_POST['add_pro'])) {
     if (!empty($_FILES['banner_image']['name'])) {
 
         $banner_image_name = $_FILES['banner_image']['name'];
+        $banner_image_name = str_replace(' ', '', $banner_image_name);
         $banner_image_temp = $_FILES['banner_image']['tmp_name'];
         $banner_image_type = $_FILES['banner_image']['type'];
         $banner_image_size = $_FILES['banner_image']['size'];
@@ -42,8 +43,8 @@ if (isset($_POST['add_pro'])) {
     }
     // BENNA MAIN IMAGE 
     if (!empty($_FILES['benna_main_image']['name'])) {
-
         $benna_main_image_name = $_FILES['benna_main_image']['name'];
+        $benna_main_image_name = str_replace(' ', '', $benna_main_image_name);
         $benna_main_image_temp = $_FILES['benna_main_image']['tmp_name'];
         $benna_main_image_type = $_FILES['benna_main_image']['type'];
         $benna_main_image_size = $_FILES['benna_main_image']['size'];
@@ -59,6 +60,7 @@ if (isset($_POST['add_pro'])) {
     if (!empty($_FILES['vision_image']['name'])) {
 
         $vision_image_name = $_FILES['vision_image']['name'];
+        $vision_image_name = str_replace(' ', '', $vision_image_name);
         $vision_image_temp = $_FILES['vision_image']['tmp_name'];
         $vision_image_type = $_FILES['vision_image']['type'];
         $vision_image_size = $_FILES['vision_image']['size'];
@@ -166,13 +168,13 @@ if (isset($_POST['add_pro'])) {
             if (isset($_SESSION['success_message'])) {
                 $message = $_SESSION['success_message'];
                 unset($_SESSION['success_message']);
-                ?>
+?>
                 <?php
                 ?>
                 <script src="plugins/jquery/jquery.min.js"></script>
                 <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
                 <script>
-                    $(function () {
+                    $(function() {
                         Swal.fire({
                             position: 'center',
                             icon: 'success',
@@ -182,7 +184,7 @@ if (isset($_POST['add_pro'])) {
                         })
                     })
                 </script>
-                <?php
+            <?php
             }
             header('Location:main.php?dir=pages&page=about');
         }
@@ -194,7 +196,7 @@ if (isset($_POST['add_pro'])) {
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 <?php echo $error; ?>
             </div>
-            <?php
+<?php
         }
         unset($_SESSION['error_messages']);
     }
@@ -264,73 +266,64 @@ $more_images = $page_data['more_images'];
                             <span class='badge badge-info'> البانر الاساسي </span>
                             <div class="form-group">
                                 <label for="inputName"> العنوان </label>
-                                <input required type="text" id="banner_head" name="banner_head" class="form-control"
-                                    value="<?php echo $banner_head ?>">
+                                <input required type="text" id="banner_head" name="banner_head" class="form-control" value="<?php echo $banner_head ?>">
                             </div>
                             <div class="form-group">
                                 <label for="description"> صورة البانر </label>
                                 <input type="file" name='banner_image' class='form-control' accept='image/*'>
                             </div>
                             <div class='form-group'>
-                                <img style='width:150px; height:150px'
-                                    src="pages/about_images/<?php echo $banner_image ?>" alt="">
+                                <img style='width:150px; height:150px' src="pages/about_images/<?php echo $banner_image ?>" alt="">
                             </div>
                             <span class='badge badge-info'> القسم الثاني ( من نحن ) </span>
                             <div class="form-group">
                                 <label for="inputName"> العنوان </label>
-                                <input required type="text" id="about_head" name="about_head" class="form-control"
-                                    value="<?php echo $about_head ?>">
+                                <input required type="text" id="about_head" name="about_head" class="form-control" value="<?php echo $about_head ?>">
                             </div>
                             <div class="form-group">
                                 <label for="inputName"> العنوان الفرعي </label>
-                                <input required type="text" id="about_short_head" name="about_short_head"
-                                    class="form-control" value="<?php echo $about_short_head ?>">
+                                <input required type="text" id="about_short_head" name="about_short_head" class="form-control" value="<?php echo $about_short_head ?>">
                             </div>
                             <div class="form-group">
                                 <label for="about_description"> الوصف </label>
-                                <textarea style='height:60px' id="about_description" name="about_description"
-                                    class="form-control" rows="4"><?php echo $about_description ?></textarea>
+                                <textarea style='height:60px' id="about_description" name="about_description" class="form-control" rows="4"><?php echo $about_description ?></textarea>
                             </div>
                             <span class='badge badge-danger'> محتوي الاقسام الفرعية </span>
                             <div class="form-group">
-                                <label for="inputName"> العنوان الفرعي الاول </label>
-                                <input required type="text" id="about_head_short1" name="about_head_short1"
-                                    class="form-control" value="<?php echo $about_head_short1 ?>">
+                                <label for="inputName"> العنوان   </label>
+                                <input required type="text" id="about_head_short1" name="about_head_short1" class="form-control" value="<?php echo $about_head_short1 ?>">
                             </div>
                             <div class="form-group">
-                                <label for="inputName"> الوصف الفرعي الاول </label>
-                                <textarea required type="text" id="about_desc_short1" name="about_desc_short1"
-                                    class="form-control"><?php echo $about_desc_short1 ?></textarea>
+                                <label for="inputName"> العنوان الفرعي  </label>
+                                <input required type="text" id="about_head_short1" name="about_head_short1" class="form-control" value="<?php echo $about_head_short1 ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName"> الوصف  </label>
+                                <textarea required type="text" id="about_desc_short1" name="about_desc_short1" class="form-control"><?php echo $about_desc_short1 ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="inputName"> العنوان الفرعي الثاني </label>
-                                <input required type="text" id="about_head_short2" name="about_head_short2"
-                                    class="form-control" value="<?php echo $about_head_short2 ?>">
+                                <input required type="text" id="about_head_short2" name="about_head_short2" class="form-control" value="<?php echo $about_head_short2 ?>">
                             </div>
                             <div class="form-group">
                                 <label for="inputName"> الوصف الفرعي الثاني </label>
-                                <textarea required type="text" id="about_desc_short2" name="about_desc_short2"
-                                    class="form-control"><?php echo $about_desc_short2; ?></textarea>
+                                <textarea required type="text" id="about_desc_short2" name="about_desc_short2" class="form-control"><?php echo $about_desc_short2; ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="inputName"> العنوان الفرعي الثالث </label>
-                                <input required type="text" id="about_head_short3" name="about_head_short3"
-                                    class="form-control" value="<?php echo $about_head_short3 ?>">
+                                <input required type="text" id="about_head_short3" name="about_head_short3" class="form-control" value="<?php echo $about_head_short3 ?>">
                             </div>
                             <div class="form-group">
                                 <label for="inputName"> الوصف الفرعي الثالث </label>
-                                <textarea required type="text" id="about_desc_short3" name="about_desc_short3"
-                                    class="form-control"><?php echo $about_desc_short3 ?></textarea>
+                                <textarea required type="text" id="about_desc_short3" name="about_desc_short3" class="form-control"><?php echo $about_desc_short3 ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="inputName"> العنوان الفرعي الرابع </label>
-                                <input required type="text" id="about_head_short4" name="about_head_short4"
-                                    class="form-control" value="<?php  echo $about_head_short4 ?>">
+                                <input required type="text" id="about_head_short4" name="about_head_short4" class="form-control" value="<?php echo $about_head_short4 ?>">
                             </div>
                             <div class="form-group">
                                 <label for="inputName"> الوصف الفرعي الرابع </label>
-                                <textarea required type="text" id="about_desc_short4" name="about_desc_short4"
-                                    class="form-control"><?php echo $about_desc_short4; ?></textarea>
+                                <textarea required type="text" id="about_desc_short4" name="about_desc_short4" class="form-control"><?php echo $about_desc_short4; ?></textarea>
                             </div>
 
                         </div>
@@ -344,66 +337,55 @@ $more_images = $page_data['more_images'];
                             <span class='badge badge-info'> القسم الثالث ( أقسام مجموعة بناء ) </span>
                             <div class="form-group">
                                 <label for="category_head"> العنوان الرئيسيى </label>
-                                <input required type="text" id="benna_main_head" name="benna_main_head"
-                                    class="form-control" value="<?php echo $benna_main_head ?>">
+                                <input required type="text" id="benna_main_head" name="benna_main_head" class="form-control" value="<?php echo $benna_main_head ?>">
                             </div>
                             <div class="form-group">
                                 <label for="category_head"> عنوان القسم الاول </label>
-                                <input required type="text" id="benna_head1" name="benna_head1" class="form-control"
-                                    value="<?php echo $benna_head1 ?>">
+                                <input required type="text" id="benna_head1" name="benna_head1" class="form-control" value="<?php echo $benna_head1 ?>">
                             </div>
                             <div class="form-group">
                                 <label for="category_head"> وصف القسم الاول </label>
-                                <textarea required type="text" id="benna_desc1" name="benna_desc1"
-                                    class="form-control"><?php echo $benna_desc1 ?></textarea>
+                                <textarea required type="text" id="benna_desc1" name="benna_desc1" class="form-control"><?php echo $benna_desc1 ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="category_head"> عنوان القسم الثاني </label>
-                                <input required type="text" id="benna_head2" name="benna_head2" class="form-control"
-                                    value="<?php echo $benna_head2 ?>">
+                                <input required type="text" id="benna_head2" name="benna_head2" class="form-control" value="<?php echo $benna_head2 ?>">
                             </div>
                             <div class="form-group">
                                 <label for="category_head"> وصف القسم الثاني </label>
-                                <textarea required type="text" id="benna_desc2" name="benna_desc2"
-                                    class="form-control"><?php echo $benna_desc2 ?></textarea>
+                                <textarea required type="text" id="benna_desc2" name="benna_desc2" class="form-control"><?php echo $benna_desc2 ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="description"> صورة القسم </label>
                                 <input type="file" name='benna_main_image' class='form-control' accept='image/*'>
                             </div>
                             <div class='form-group'>
-                                <img style='width:150px; height:150px'
-                                    src="pages/about_images/<?php echo $benna_main_image ?>" alt="">
+                                <img style='width:150px; height:150px' src="pages/about_images/<?php echo $benna_main_image ?>" alt="">
                             </div>
                             <span class='badge badge-info'> رؤيتنا </span>
                             <div class="form-group">
                                 <label for="category_head"> العنوان </label>
-                                <input required type="text" id="vision_head" name="vision_head" class="form-control"
-                                    value="<?php echo $vision_head ?>">
+                                <input required type="text" id="vision_head" name="vision_head" class="form-control" value="<?php echo $vision_head ?>">
                             </div>
                             <div class="form-group">
                                 <label for="category_head"> الوصف </label>
-                                <textarea required type="text" id="vision_desc" name="vision_desc"
-                                    class="form-control"><?php echo $vision_desc ?></textarea>
+                                <textarea required type="text" id="vision_desc" name="vision_desc" class="form-control"><?php echo $vision_desc ?></textarea>
                             </div>
                             <span class='badge badge-info'> رسالتنا </span>
                             <div class="form-group">
                                 <label for="category_head"> العنوان </label>
-                                <input required type="text" id="message_head" name="message_head" class="form-control"
-                                    value="<?php echo $message_head ?>">
+                                <input required type="text" id="message_head" name="message_head" class="form-control" value="<?php echo $message_head ?>">
                             </div>
                             <div class="form-group">
                                 <label for="category_head"> الوصف </label>
-                                <textarea required type="text" id="message_desc" name="message_desc"
-                                    class="form-control"><?php echo $message_desc ?></textarea>
+                                <textarea required type="text" id="message_desc" name="message_desc" class="form-control"><?php echo $message_desc ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="description"> صورة القسم </label>
                                 <input type="file" name='vision_image' class='form-control' accept='image/*'>
                             </div>
                             <div class='form-group'>
-                                <img style='width:150px; height:150px'
-                                    src="pages/about_images/<?php echo $vision_image ?>" alt="">
+                                <img style='width:150px; height:150px' src="pages/about_images/<?php echo $vision_image ?>" alt="">
                             </div>
                             <span class='badge badge-info'> القسم الاخير ( الاعتمادات ) </span>
                             <div class="form-group">
@@ -419,15 +401,13 @@ $more_images = $page_data['more_images'];
 
                                     <div class="col-3">
                                         <div class="">
-                                            <a target='_blank' href="pages/about_images/<?= $images[$i] ?>"
-                                                data-toggle="lightbox" data-title="sample 2 - black">
-                                                <img style="max-width: 100%;" src="pages/home_images/<?= $images[$i] ?>"
-                                                    class="img-fluid mb-2" alt="المعرض" />
+                                            <a target='_blank' href="pages/about_images/<?= $images[$i] ?>" data-toggle="lightbox" data-title="sample 2 - black">
+                                                <img style="max-width: 100%;" src="pages/home_images/<?= $images[$i] ?>" class="img-fluid mb-2" alt="المعرض" />
                                             </a>
                                         </div>
                                     </div>
 
-                                    <?php
+                                <?php
                                 }
                                 ?>
                             </div>
