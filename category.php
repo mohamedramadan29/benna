@@ -9,13 +9,14 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $cat_data = $stmt->fetch();
     $cat_name = $cat_data['name'];
     $cat_image = $cat_data['main_image'];
+    $cat_image_banner = $cat_data['main_image_banner'];
     $cat_desc = $cat_data['description'];
     $count = $stmt->rowCount();
     if ($count > 0) {
 ?>
 
         <!-- START HERO SECTION  -->
-        <div class="category" style="background-image: url(admin/benna_categories/images/<?php echo $cat_image; ?>); background-size: cover; background-position: center">
+        <div class="category" style="background-image: url(admin/benna_categories/images/<?php echo $cat_image_banner; ?>); background-size: cover; background-position: center">
             <div class="overlay" style="background-color:transparent">
                 <div class="container">
                     <div class="data">
