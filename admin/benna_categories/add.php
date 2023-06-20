@@ -23,6 +23,22 @@ if (isset($_POST['add_cat'])) {
         $main_image_uploaded = '';
     }
 
+    // main image banner
+    if (!empty($_FILES['main_image_banner']['name'])) {
+        $main_image_banner_name = $_FILES['main_image_banner']['name'];
+        $main_image_banner_name = str_replace(' ', '', $main_image_banner_name);
+        $main_image_banner_temp = $_FILES['main_image_banner']['tmp_name'];
+        $main_image_banner_type = $_FILES['main_image_banner']['type'];
+        $main_image_banner_size = $_FILES['main_image_banner']['size'];
+        $main_image_banner_uploaded = time() . '_' . $main_image_banner_name;
+        move_uploaded_file(
+            $main_image_banner_temp,
+            'benna_categories/images/' . $main_image_banner_uploaded
+        );
+    } else {
+        $main_image_banner_uploaded = '';
+    }
+
     $stmt = $connect->prepare("SELECT * FROM categories WHERE name = ?");
     $stmt->execute(array($name));
     $count = $stmt->rowCount();
@@ -30,7 +46,7 @@ if (isset($_POST['add_cat'])) {
         $formerror[] = ' اسم القسم موجود من قبل من فضلك ادخل اسم اخر  ';
     }
     if (empty($formerror)) {
-        $stmt = $connect->prepare("INSERT INTO categories (name,main_image,description,short_description)
+        $stmt = $connect->prepare("INSERT INTO categories (name,main_image,main_image_banner,description,short_description)
         VALUES (:zname,:zimage,:zdesc,:zshort_desc)");
         $stmt->execute(
             array(

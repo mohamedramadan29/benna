@@ -5,7 +5,7 @@ include 'init.php';
 ?>
 <div class="category"
     style="background-image: url(uploads/advisor.jpg); background-size: cover; background-position: center; ">
-    <div class="overlay">
+    <div class="overlay" style="background-color: transparent;">
         <div class="container">
             <div class="data">
                 <div class="row">

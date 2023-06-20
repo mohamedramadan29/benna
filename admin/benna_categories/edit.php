@@ -24,6 +24,26 @@ if (isset($_POST['edit_cat'])) {
         $main_image_uploaded = '';
     }
 
+
+
+    // main image banner
+    if (!empty($_FILES['main_image_banner']['name'])) {
+        $main_image_banner_name = $_FILES['main_image_banner']['name'];
+        $main_image_banner_name = str_replace(' ', '', $main_image_banner_name);
+        $main_image_banner_temp = $_FILES['main_image_banner']['tmp_name'];
+        $main_image_banner_type = $_FILES['main_image_banner']['type'];
+        $main_image_banner_size = $_FILES['main_image_banner']['size'];
+        $main_image_banner_uploaded = time() . '_' . $main_image_banner_name;
+        move_uploaded_file(
+            $main_image_banner_temp,
+            'benna_categories/images/' . $main_image_banner_uploaded
+        );
+    } else {
+        $main_image_banner_uploaded = '';
+    }
+
+
+
     $stmt = $connect->prepare("SELECT * FROM categories WHERE name=? AND id !=?");
     $stmt->execute(array($name, $cat_id));
     $count = $stmt->rowCount();
@@ -32,10 +52,14 @@ if (isset($_POST['edit_cat'])) {
     }
     if (empty($formerror)) {
         $stmt = $connect->prepare("UPDATE categories SET name=?,description=?,short_description=? WHERE id = ? ");
-        $stmt->execute(array($name, $description,$short_description, $cat_id));
+        $stmt->execute(array($name, $description, $short_description, $cat_id));
         if (!empty($_FILES['main_image']['name'])) {
             $stmt = $connect->prepare("UPDATE categories SET main_image=? WHERE id = ? ");
             $stmt->execute(array($main_image_uploaded, $cat_id));
+        }
+        if (!empty($_FILES['main_image_banner']['name'])) {
+            $stmt = $connect->prepare("UPDATE categories SET main_image_banner=? WHERE id = ? ");
+            $stmt->execute(array($main_image_banner_uploaded, $cat_id));
         }
         if ($stmt) {
             $_SESSION['success_message'] = "تم التعديل بنجاح ";
