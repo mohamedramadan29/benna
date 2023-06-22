@@ -36,8 +36,7 @@ $images = explode(",", $more_images);
 $countfile = count($images) - 1;
 ?>
 <!-- START HERO SECTION  -->
-<div class="category"
-    style="background-image: url(admin/pages/about_images/<?php echo $banner_image ?>); background-size: cover; background-position: center; ">
+<div class="category" style="background-image: url(admin/pages/about_images/<?php echo $banner_image ?>); background-size: cover; background-position: center; ">
     <div class="overlay" style="background-color: transparent;">
         <div class="container">
             <div class="data">
@@ -73,6 +72,7 @@ $countfile = count($images) - 1;
                     <?php echo $about_description; ?>
                 </p>
             </div>
+            <!--
             <div class="row">
                 <div class="col-lg-12">
                     <div class="info">
@@ -115,6 +115,7 @@ $countfile = count($images) - 1;
                     </div>
                 </div>
             </div>
+-->
         </div>
     </div>
 </div>
@@ -188,23 +189,22 @@ $countfile = count($images) - 1;
         </div>
     </div>
 </div>
-<!-- END ABOUT US -->
-<!-- END BENNA CAT -->
+<!-- END ABOUT US --> 
 <!-- START BRANDS  -->
 <div class="brands">
     <div class="container">
         <div class="data">
+            <h2 style="margin-bottom: 50px;color: var(--main-color);font-size: 35px;"> اعتماداتنا </h2>
             <div class="row" style="display: flex; align-items:center">
                 <div class="col-lg-1"></div>
                 <?php
                 for ($i = 0; $i < $countfile; ++$i) { ?>
                     <div class="col-lg-2">
                         <div class="">
-                            <img style="max-width: 100%;" src="admin/pages/about_images/<?= $images[$i] ?>"
-                                class="img-fluid mb-2" alt="المعرض" />
+                            <img style="max-width: 100%;" src="admin/pages/about_images/<?= $images[$i] ?>" class="img-fluid mb-2" alt="المعرض" />
                         </div>
                     </div>
-                    <?php
+                <?php
                 }
                 ?>
             </div>

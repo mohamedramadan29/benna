@@ -5,6 +5,7 @@ if (isset($_POST['add_pro'])) {
     $about_head = $_POST['about_head'];
     $about_short_head = $_POST['about_short_head'];
     $about_description = $_POST['about_description'];
+    /*
     $about_head_short1 = $_POST['about_head_short1'];
     $about_head_short2 = $_POST['about_head_short2'];
     $about_head_short3 = $_POST['about_head_short3'];
@@ -13,6 +14,7 @@ if (isset($_POST['add_pro'])) {
     $about_desc_short2 = $_POST['about_desc_short2'];
     $about_desc_short3 = $_POST['about_desc_short3'];
     $about_desc_short4 = $_POST['about_desc_short4'];
+    */
     $benna_main_head = $_POST['benna_main_head'];
     $benna_head1 = $_POST['benna_head1'];
     $benna_head2 = $_POST['benna_head2'];
@@ -90,9 +92,9 @@ if (isset($_POST['add_pro'])) {
 
     if (empty($formerror)) {
         $stmt = $connect->prepare("UPDATE about_page SET banner_head=?,about_head=?
-            ,about_short_head=? ,about_description=? ,about_head_short1=? ,about_head_short2=?
+            ,about_short_head=? ,about_description=? /*about_head_short1=? ,about_head_short2=?
             ,about_head_short3=? ,about_head_short4=? ,about_desc_short1=? ,about_desc_short2=?
-            ,about_desc_short3=? ,about_desc_short4=? ,benna_main_head=? ,benna_head1=?
+            ,about_desc_short3=? ,about_desc_short4=? */,benna_main_head=? ,benna_head1=?
             ,benna_head2=? ,benna_desc1=? ,benna_desc2=? ,vision_head=? ,vision_desc=?
             ,message_head=? ,message_desc=?");
         $stmt->execute(
@@ -101,6 +103,7 @@ if (isset($_POST['add_pro'])) {
                 $about_head,
                 $about_short_head,
                 $about_description,
+                /*
                 $about_head_short1,
                 $about_head_short2,
                 $about_head_short3,
@@ -109,6 +112,7 @@ if (isset($_POST['add_pro'])) {
                 $about_desc_short2,
                 $about_desc_short3,
                 $about_desc_short4,
+                */
                 $benna_main_head,
                 $benna_head1,
                 $benna_head2,
@@ -288,6 +292,7 @@ $more_images = $page_data['more_images'];
                                 <label for="about_description"> الوصف </label>
                                 <textarea style='height:60px' id="about_description" name="about_description" class="form-control" rows="4"><?php echo $about_description ?></textarea>
                             </div>
+                            <!--
                             <span class='badge badge-danger'> محتوي الاقسام الفرعية </span>
                             <div class="form-group">
                                 <label for="inputName"> العنوان   </label>
@@ -325,6 +330,7 @@ $more_images = $page_data['more_images'];
                                 <label for="inputName"> الوصف الفرعي الرابع </label>
                                 <textarea required type="text" id="about_desc_short4" name="about_desc_short4" class="form-control"><?php echo $about_desc_short4; ?></textarea>
                             </div>
+-->
 
                         </div>
                         <!-- /.card-body -->
